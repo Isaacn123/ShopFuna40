@@ -1,5 +1,7 @@
 <?php
 
+$redisUrl = parse_url(env('REDIS_URL'));
+
 use Illuminate\Support\Str;
 
 return [
@@ -125,14 +127,23 @@ return [
         //     'cluster' => env('REDIS_CLUSTER', 'redis'),
         //     'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
         // ],
+
+        
         'cluster' => false,
 
+        // 'default' => [
+        //     'url' => env('REDIS_URL'),
+        //     'host' => env('REDIS_HOST', '127.0.0.1'),
+        //     'password' => env('REDIS_PASSWORD', null),
+        //     'port' => env('REDIS_PORT', '6379'),
+        //     'database' => env('REDIS_DB', '0'),
+        // ],
         'default' => [
-            'url' => env('REDIS_URL'),
-            'host' => env('REDIS_HOST', '127.0.0.1'),
-            'password' => env('REDIS_PASSWORD', null),
-            'port' => env('REDIS_PORT', '6379'),
-            'database' => env('REDIS_DB', '0'),
+            // 'url' => $redisUrl['url']),
+            'host' => $redisUrl['host'],
+            'password' => $redisUrl['password'],
+            'port' => $redisUrl['port'],
+            'database' => 0,
         ],
 
         'cache' => [
