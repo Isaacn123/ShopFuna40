@@ -128,7 +128,7 @@ return [
         //     'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
         // ],
 
-        
+
         'cluster' => false,
 
         // 'default' => [
@@ -141,7 +141,7 @@ return [
         'default' => [
             // 'url' => $redisUrl['url']),
             'host' => $redisUrl['host'],
-            'password' => $redisUrl['password'],
+            'password' => $redisUrl['pass'],
             'port' => $redisUrl['port'],
             'database' => 0,
         ],
