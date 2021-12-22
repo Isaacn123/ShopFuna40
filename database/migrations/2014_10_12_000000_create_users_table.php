@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('otp')->nullable();
             $table->string('code')->nullable();
             $table->string('zipcode')->nullable();
-            $table->string('image')->default("noimage.jpg");
+            $table->string('image')->default("user/noimage.jpg");
             $table->boolean('status')->default(1);
             $table->string('phone')->nullable();
             $table->rememberToken();
