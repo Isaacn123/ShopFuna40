@@ -26,7 +26,8 @@ class CreateProductsTable extends Migration
             $table->index('user_id');
             $table->integer('stock');
             $table->integer('discount');
-            $table->string('featured_image')->default('no_featuredImage.jpg');
+            $table->string('slug');
+            $table->string('featured_image')->default('products/no_featuredImage.jpg');
             $table->timestamps();
         });
     }
