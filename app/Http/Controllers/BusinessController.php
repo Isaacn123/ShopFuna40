@@ -76,7 +76,7 @@ class BusinessController extends Controller
     {
       
         $request->validate([
-                "name" => 'bail|required',
+                "name" => 'required|max:255|unique:business',
                 "description"  => 'bail|required',
                 "andress" => 'bail|required',
         ]);
