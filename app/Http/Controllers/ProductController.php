@@ -74,7 +74,7 @@ class ProductController extends Controller
         $product ->stock = $request->stock;
         $nameF = "Product_" . time();
         if(isset($request->featured_image)){
-            $result = $request->file('featured_image')->storeOnCloudinaryAs('products', $nameF);
+            $result = $request->featured_image->storeOnCloudinaryAs('products', $nameF);
             $imagename = $result->getFileName();
             $extension = $result->getExtension();
     
