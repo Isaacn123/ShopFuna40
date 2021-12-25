@@ -38,7 +38,7 @@ class ProductController extends Controller
 
         //  return ProductCollection::collection(Product::all());
 
-        return ProductCollection::collection(Product::paginate(15));
+        return ProductCollection::collection(Product::orderBy('id', 'DESC')->paginate(15));
     }
 
     /**
