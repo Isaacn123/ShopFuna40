@@ -114,7 +114,7 @@ class BusinessController extends Controller
         // $product->price = $request->price;
         // $product->service_id = json_encode($request->service_id);
         // $product->status = $request->status;
-        $nameF = "Business_" . time();
+        $nameF = "BusinessLogo_" . time();
         if($request->hasFile('image'))
         {
              $image = $request->file('image');
