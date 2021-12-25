@@ -20,10 +20,10 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->string('category_id');
             $table->string('subCategory_id');
-            // $table->bigInteger('user_id')->unsigned()->index();
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->index('user_id');
+            $table->bigInteger('user_id')->unsigned()->index();
+            // $table->bigInteger('user_id')->unsigned();
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->index('user_id');
             $table->integer('stock');
             $table->integer('discount');
             $table->string('slug');
