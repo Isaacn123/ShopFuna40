@@ -72,6 +72,7 @@ class ProductController extends Controller
         $product ->category_id = $request->category_id;
         $product ->subCategory_id = $request->subCategory_id;
         $product ->stock = $request->stock;
+        $product ->slug = $request-> slug;
         $nameF = "Product_" . time();
         if(isset($request->featured_image)){
             $result = $request->featured_image->storeOnCloudinaryAs('products', $nameF);
