@@ -9,6 +9,7 @@ class Product extends Model
 {
     use HasFactory;
      protected $table = 'products';
+     protected $appends = ['imagePath'];
      protected $fillable = [
           'name','stock','price', 'description','featured_image','category_id','discount',
           'subCategory_id', 'slug'
@@ -18,5 +19,12 @@ class Product extends Model
     public function reviews(){
 
         return $this->hasMany('App\Models\Review');
+    }
+
+    public function getImagePathAttribute()
+    {
+        // return url('images/business') . '/';
+        return url('https://res.cloudinary.com/ivhfizons/image/upload/v1639074703'). '/';
+    
     }
 }
