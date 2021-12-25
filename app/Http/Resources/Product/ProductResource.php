@@ -18,7 +18,6 @@ class ProductResource extends JsonResource
             'name' =>$this->name,
             'description' => $this->description,
             'price' => $this->price,
-            'user_id' =>$this->user_id,
             'discount' => $this->discount,
             'stock' => $this->stock == 0 ? 'Out of Stock' : $this->stock,
             'total_price' => round((1 - ($this->discount/100)) * $this->price,2),

@@ -18,6 +18,7 @@ class ProductCollection extends JsonResource
         return[
             'name' =>$this->name,
             'price' =>$this->price,
+            'user_id' =>$this->user_id,
             'category_id' => $this -> category_id,
             'total_price' => round((1 - ($this->discount/100)) * $this->price,2),
             'discount' => $this->discount,
