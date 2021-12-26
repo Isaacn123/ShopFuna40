@@ -35,7 +35,7 @@
    @endif
 
 
-       <form action="{{ isset($category) ? route('category.update', $category->id) : route('category.store')}}" method="POST" >
+       <form action="{{ isset($category) ? route('category.update', $category->id) : route('category.store')}}" method="POST" enctype="multipart/form-data" >
        <!-- @csrf -->
        @csrf
          @if(isset($category))

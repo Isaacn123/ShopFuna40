@@ -99,6 +99,16 @@ class CategoryController extends Controller
     //         $imageID = $result->getPublicId(); 
     //         $category->featured_image = $name;
     //     }
+
+    if($request->hasFile('file')){
+            $result = $request->image->storeOnCloudinaryAs('category', $nameF);
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
+            
+            $name = $imagename . "." . $extension;
+            $path = $result->getSecurePath();
+            $category->featured_image = $name;
+    }
        
         $category->save();
 
