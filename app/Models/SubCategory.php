@@ -9,6 +9,7 @@ use App\Models\Category;
 class SubCategory extends Model
 {
     use HasFactory;
+    protected $appends = ['imagePath'];
 
     protected $fillable = [
         'subcategoryname',
@@ -16,6 +17,12 @@ class SubCategory extends Model
         'category_id',
         'category_name',
     ];
+
+    public function getImagePathAttribute()
+    {
+        // return url('images/user') . '/';
+        return url('https://res.cloudinary.com/ivhfizons/image/upload/v1639074703'). '/';
+    }
 
    public function categories()
    {
