@@ -37,7 +37,7 @@
 
     <div class="card card-body">
     
-                <form action="{{route('sub-category.store')}}" method="post">
+                <form action="{{route('sub-category.store')}}" method="post" enctype="multipart/form-data">
 
                 @csrf
 
@@ -60,6 +60,11 @@
                         <label for="slug">Slug</label>
                         <input type="text" class="form-control" id="slug" name="slug" placeholder="enter Slug">
                     </div>
+
+                    <div class="form-group">
+             <label for="">Featured_image</label>
+            <input type="file" name="image" class="form-control"/>
+         </div>
 
                     <div class="form-group">
                         <button class="btn btn-primary">Add SubCategory</button>

@@ -62,7 +62,22 @@ class subCategoryController extends Controller
         //     ]
         // );
         //   $category->category_name = $request->category_name;
-        Subcategory::create($request->all());
+       // Subcategory::create($request->all());
+
+        $subcategory = new Subcategory(); 
+        $subcategory->name = $request->name;
+        $subcategory->slug = $request->slug;
+        $nameF = "SubCategory_" . time();
+        if(isset($request->image)){
+            $result = $request->image->storeOnCloudinaryAs('category', $nameF);
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
+            
+            $name = $imagename . "." . $extension;
+            $path = $result->getSecurePath();
+            $subcategory->featured_image = $name;
+    }
+         $subcategory->save();
         @session()->flash('success', 'SubCategory Successfully stored.');
 
         return redirect()->route('sub-category.index');

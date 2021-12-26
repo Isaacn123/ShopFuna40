@@ -57,9 +57,6 @@
 
          <div class="form-group">
              <label for="">Featured_image</label>
-             <!-- <x-cld-upload-button>
-            Upload Files
-            </x-cld-upload-button> -->
             <input type="file" name="image" class="form-control"/>
          </div>
         <div class="form-group mt-2">
