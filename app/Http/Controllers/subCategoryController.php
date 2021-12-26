@@ -65,8 +65,10 @@ class subCategoryController extends Controller
        // Subcategory::create($request->all());
 
         $subcategory = new Subcategory(); 
-        $subcategory->name = $request->name;
+        $subcategory->name = $request->subcategoryname;
         $subcategory->slug = $request->slug;
+        $subcategory->category_id = $request->category_id;
+        $subcategory->category_name = $request->category_name;
         $nameF = "SubCategory_" . time();
         if(isset($request->image)){
             $result = $request->image->storeOnCloudinaryAs('subcategory', $nameF);
