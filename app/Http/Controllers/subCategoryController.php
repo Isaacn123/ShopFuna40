@@ -69,7 +69,7 @@ class subCategoryController extends Controller
         $subcategory->slug = $request->slug;
         $nameF = "SubCategory_" . time();
         if(isset($request->image)){
-            $result = $request->image->storeOnCloudinaryAs('category', $nameF);
+            $result = $request->image->storeOnCloudinaryAs('subcategory', $nameF);
             $imagename = $result->getFileName();
             $extension = $result->getExtension();
             
