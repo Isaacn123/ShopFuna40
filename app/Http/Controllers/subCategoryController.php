@@ -65,7 +65,7 @@ class subCategoryController extends Controller
        // Subcategory::create($request->all());
 
         $subcategory = new Subcategory(); 
-        $subcategory->name = $request->subcategoryname;
+        $subcategory->subcategoryname = $request->subcategoryname;
         $subcategory->slug = $request->slug;
         $subcategory->category_id = $request->category_id;
         $subcategory->category_name = $request->category_name;
