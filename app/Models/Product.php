@@ -27,4 +27,9 @@ class Product extends Model
         return url('https://res.cloudinary.com/ivhfizons/image/upload/v1639074703'). '/';
     
     }
+
+    public function subCategory()
+    {
+        return $this->hasMany('App\Models\SubCategory');
+    }
 }
