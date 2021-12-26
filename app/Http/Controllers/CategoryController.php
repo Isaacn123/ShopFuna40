@@ -100,7 +100,7 @@ class CategoryController extends Controller
     //         $category->featured_image = $name;
     //     }
 
-    if($request->hasFile('file')){
+    if(isset($request->image)){
             $result = $request->image->storeOnCloudinaryAs('category', $nameF);
             $imagename = $result->getFileName();
             $extension = $result->getExtension();
