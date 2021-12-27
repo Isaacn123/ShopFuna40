@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->string('category_id');
             $table->integer('qty')->default(1);
-            $table->integer('favourites');
+            $table->integer('favourites')->default(0);
             $table->string('subCategory_id');
             $table->bigInteger('user_id')->unsigned()->index();
             // $table->bigInteger('user_id')->unsigned();
