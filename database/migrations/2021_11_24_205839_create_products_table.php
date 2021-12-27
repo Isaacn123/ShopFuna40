@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->string('category_id');
+            $table->integer('qty')->default(1);
+            $table->integer('favourites');
             $table->string('subCategory_id');
             $table->bigInteger('user_id')->unsigned()->index();
             // $table->bigInteger('user_id')->unsigned();
