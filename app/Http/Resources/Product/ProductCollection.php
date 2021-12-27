@@ -23,9 +23,9 @@ class ProductCollection extends JsonResource
             'total_price' => round((1 - ($this->discount/100)) * $this->price,2),
             'discount' => $this->discount,
             'imagePath' => $this->imagePath,
-            'qty' => $this->$this->qty,
+            'qty' => $this->qty,
             'subCategory_id' => $this->subCategory_id,
-            'featured_image' => $this -> featured_image,
+            'featured_image' => $this ->featured_image,
             'created_at' => $this->created_at,
             'ratings' =>$this->reviews->count() > 0 ? round($this->reviews->sum('star') / $this->reviews->count(),2) : 'no ratings',
 
