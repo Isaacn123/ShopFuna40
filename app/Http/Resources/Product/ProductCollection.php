@@ -27,7 +27,8 @@ class ProductCollection extends JsonResource
             'subCategory_id' => $this->subCategory_id,
             'featured_image' => $this ->featured_image,
             'created_at' => $this->created_at,
-            'ratings' =>$this->reviews->count() > 0 ? round($this->reviews->sum('star') / $this->reviews->count(),2) : 'no ratings',
+            // 'no ratings'
+            'ratings' =>$this->reviews->count() > 0 ? round($this->reviews->sum('star') / $this->reviews->count(),2) : 0,
 
             'href' => [
                 'links' => route('products.show', $this->id)
