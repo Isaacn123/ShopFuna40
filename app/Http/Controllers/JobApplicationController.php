@@ -81,7 +81,7 @@ class JobApplicationController extends Controller
         $jobapplication ->firstName = $request->firstName;
         $jobapplication ->lastName = $request->lastName;
         $jobapplication ->email = $request->email;
-        $jobapplication  ->phoneNumber = $request->phoneNumber;
+        $jobapplication ->phoneNumber = $request->phoneNumber;
         $jobapplication ->address = $request->address;
         $jobapplication ->city = $request->city;
         $jobapplication ->country = $request->country;
@@ -105,7 +105,15 @@ class JobApplicationController extends Controller
 
         }
 
+        $jobapplication->save();
+        $response = response([
+            "data" => $jobapplication, 
+            "status" => 'ok',
+            "success" => true,
+            "message" => "Job created successfully"
+        ], 200);
 
+        return $response;
 
     }
 
