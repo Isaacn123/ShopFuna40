@@ -29,12 +29,14 @@ class CreateJobsTable extends Migration
             $table->string('address');
             $table->string('jobType');
             $table->string('companyAbbreviation')->nullable();
-            $table->integer('position_1')->nullable();
-            $table->integer('position_2')->nullable();
-            $table->integer('position_3')->nullable();
+            $table->string('position_1')->nullable();
+            $table->string('position_2')->nullable();
+            $table->string('position_3')->nullable();
+            $table->string('skills');
+            $table->string('responsibility');
             $table->integer('jobPositions');
             $table->string('description');
-            $table->string('companyLogo');
+            $table->string('companyLogo')->default('company/no_featuredImage.jpg');
             $table->timestamps();
         });
     }

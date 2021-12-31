@@ -34,6 +34,8 @@ class StoreJopRequest extends FormRequest
         'phone' => 'bail|required|numeric',
         'zipcode' => 'required',
         'address' => 'required',
+        'responsibility' => 'required',
+        'skills' => 'required',
         'jobType' => 'required',
         'position_1' =>'required',
         'description' => 'required',

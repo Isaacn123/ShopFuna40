@@ -28,5 +28,7 @@ class Job extends Model
         'jobPositions',
         'description',
         'companyLogo',
+        'responsibility',
+        'skills',
     ];
 }
