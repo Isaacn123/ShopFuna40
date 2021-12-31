@@ -55,7 +55,7 @@ class JobApplicationController extends Controller
         $jobapplication ->dateOfBirth = $request->dateOfBirth;
         $jobapplication ->jobPositon = $request->jobPositon;
         $jobapplication ->jobTitle = $request->jobTitle;
-        $jobapplication ->company_name => $request->company_name;
+        $jobapplication ->company_name = $request->company_name; 
         $jobapplication ->job_id = $request->job_id;
 
          
