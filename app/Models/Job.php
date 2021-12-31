@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
+    protected $appends = ['imagePath'];
     protected $fillable = [
         'title',
         'salary',
@@ -31,4 +32,11 @@ class Job extends Model
         'responsibility',
         'skills',
     ];
+
+    public function getImagePathAttribute()
+    {
+        // return url('images/business') . '/';
+        return url('https://res.cloudinary.com/ivhfizons/image/upload/v1639074703'). '/';
+    
+    }
 }
