@@ -25,7 +25,7 @@ class CreateJobApplicationsTable extends Migration
             $table->string('company_name');
             $table->string('jobPositon');
             $table->string('zipCode');
-            $table->string('reference');
+            $table->string('reference')->nullable();
             $table->string('country');
             $table->string('city');
             $table->string('resume');
