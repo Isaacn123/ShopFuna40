@@ -26,6 +26,7 @@ class ProductCollection extends JsonResource
             'qty' => $this->qty,
             'description' =>$this->description,
             'subCategory_id' => $this->subCategory_id,
+            'companyName' => $this->companyName,
             'featured_image' => $this ->featured_image,
             'created_at' => $this->created_at,
             // 'no ratings'

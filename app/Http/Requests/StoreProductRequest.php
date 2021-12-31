@@ -29,7 +29,8 @@ class StoreProductRequest extends FormRequest
             'description' => 'required',
             'price' => 'required|max:10',
             'category_id' => 'required',
-            'discount' => 'required|max:2',
+            'companyName' => 'required|max:255',
+            'discount' => 'required|max:2', 
             'subCategory_id' => 'required',
             'stock' => 'required|max:6',
         ];

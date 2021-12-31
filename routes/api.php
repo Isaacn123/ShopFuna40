@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Business;
 use App\Http\Controllers\BusinessController;
+use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostCategory;
@@ -41,6 +43,7 @@ Route::get('business',[BusinessController::class, 'index']);
 Route::get('category', [PostCategory::class, 'index']); 
 Route::get('sub_category/{id}', [PostSubCategory::class, 'index']); 
 Route::get('business/{category}', [BusinessController::class, 'business']); 
+Route::post('apply', [JobApplicationController::class, 'store']); 
 
 // protected Routes
 Route::group(['middleware' => 'auth:sanctum'], function () {
@@ -65,7 +68,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 // Route::get('/business',[BusinessController::class, 'index']); 
 
 // Route::post('/business', [BusinessController::class, 'store']); 
-
+    Route::apiResource('/jobs', JobController::class);
     Route::apiResource('/select', ProController::class);
     Route::apiResource('products', ProductController::class);
     Route::group(['prefix' => 'products'], function (){
