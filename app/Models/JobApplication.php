@@ -21,6 +21,9 @@ class JobApplication extends Model
        'city',
        'resume',
        'description',
-       'dateOfBirth'
+       'dateOfBirth',
+       'jobTitle',
+       'job_id',
+       'company_name',
     ];
 }

@@ -20,6 +20,9 @@ class CreateJobApplicationsTable extends Migration
             $table->string('email');
             $table->string('phoneNumber');
             $table->string('address');
+            $table->string('jobTitle');
+            $table->integer('job_id');
+            $table->string('company_name');
             $table->string('jobPositon');
             $table->string('zipCode');
             $table->string('reference');
