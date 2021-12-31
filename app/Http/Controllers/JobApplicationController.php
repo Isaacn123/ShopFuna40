@@ -54,6 +54,10 @@ class JobApplicationController extends Controller
         $jobapplication ->description = $request->description;
         $jobapplication ->dateOfBirth = $request->dateOfBirth;
         $jobapplication ->jobPositon = $request->jobPositon;
+        $jobapplication ->jobTitle = $request->jobTitle;
+        $jobapplication ->company_name => $request->company_name;
+        $jobapplication ->job_id = $request->job_id;
+
          
         $nameF = "ApplicationResum_" . $request->firstName . "_" . $request->lastName .time();
         if(isset($request->companyLogo)){
