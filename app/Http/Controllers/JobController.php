@@ -53,7 +53,7 @@ class JobController extends Controller
         $jobinfo ->company = $request->company;
         $jobinfo ->companyWebsite = $request-> companyWebsite;
         $jobinfo ->slug = $request-> slug;
-        $jobinfo ->andress = $request-> andress;
+        $jobinfo ->address = $request-> address;
         $jobinfo ->email = $request-> email;
         $jobinfo ->phone = $request->phone;
         $jobinfo ->zipcode = $request-> zipcode;
