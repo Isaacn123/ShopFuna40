@@ -22,7 +22,7 @@ class CreateJobsTable extends Migration
             $table->string('country');
             $table->string('city');
             $table->string('company');
-            $table->string('companyWebsite');
+            $table->string('companyWebsite')->nullable();
             $table->string('email');
             $table->string('phone');
             $table->string('zipcode');
