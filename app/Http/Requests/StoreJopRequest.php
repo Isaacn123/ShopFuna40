@@ -37,6 +37,7 @@ class StoreJopRequest extends FormRequest
         'responsibility' => 'required',
         'skills' => 'required',
         'jobType' => 'required',
+        'jobPositions' => 'required',
         'position_1' =>'required',
         'description' => 'required',
         ];
