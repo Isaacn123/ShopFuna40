@@ -93,7 +93,7 @@ class JobApplicationController extends Controller
          
         $nameF = "ApplicationResum_" . $request->firstName . "_" . $request->lastName .time();
         if(isset($request->companyLogo)){
-            $result = $request->companyLogo->storeOnCloudinaryAs('company', $nameF);
+            $result = $request->companyLogo->storeOnCloudinaryAs('jobApplications', $nameF);
             $imagename = $result->getFileName();
             $extension = $result->getExtension();
     
