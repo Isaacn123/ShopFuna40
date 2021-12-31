@@ -32,7 +32,7 @@ class CreateJobsTable extends Migration
             $table->integer('position_1')->nullable();
             $table->integer('position_2')->nullable();
             $table->integer('position_3')->nullable();
-            $table->interger('jobPositions');
+            $table->integer('jobPositions');
             $table->string('description');
             $table->string('companyLogo');
             $table->timestamps();
