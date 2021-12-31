@@ -65,6 +65,8 @@ class JobController extends Controller
         $jobinfo ->position_1 = $request->position_1;
         $jobinfo ->position_2 = $request->position_2;
         $jobinfo ->position_3 = $request->position_3;
+        $jobinfo ->skills = $request->skills;
+        $jobinfo ->responsibility = $request->responsibility;
         $nameF = "CompanyLogo_" . time();
         if(isset($request->companyLogo)){
             $result = $request->companyLogo->storeOnCloudinaryAs('company', $nameF);
