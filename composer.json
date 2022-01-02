@@ -40,6 +40,7 @@
         "post-install-cmd": [
             "@php artisan clear-compiled",
             "@php artisan config:clear",
+            "@php artisan passport:keys",
             "@php artisan cache:clear"
         ],
         "post-autoload-dump": [
