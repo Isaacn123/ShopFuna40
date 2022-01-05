@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Cv;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCvRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CvController extends Controller
 {
@@ -44,6 +45,42 @@ class CvController extends Controller
     public function store(StoreCvRequest $request)
     {
         //
+
+        $cvapplication =new Cv();
+        $cvapplication ->firstName = $request->firstName;
+        $cvapplication ->lastName = $request->lastName;
+        $cvapplication ->phone = $request->phone;
+        $cvapplication ->email = $request->email;
+        $cvapplication ->address = $request->address;
+        $cvapplication ->user_id = Auth::user()->id;
+        $cvapplication ->profession = $request->profession;
+        $cvapplication ->about = $request->about;
+        $cvapplication ->slug = $request-> slug;
+        $cvapplication ->location = $request->location;
+        $cvapplication ->zipcode = $request-> zipcode;
+        $nameF = "Cv_" . time();
+        if(isset($request->pdf_file)){
+            $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
+    
+            $name = $imagename . "." . $extension;
+            $path = $result->getSecurePath();
+            $cvapplication->pdf_file = $name;
+            // $imageID = $result->getPublicId();
+
+
+        }
+
+        $cvapplication->save();
+        $response = response([
+            "data" => $cvapplication, 
+            "status" => 'ok',
+            "success" => true,
+            "message" => "Cv Application created successfully"
+        ], 200);
+
+
     }
 
     /**
