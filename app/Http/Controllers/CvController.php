@@ -24,6 +24,8 @@ class CvController extends Controller
     public function index()
     {
         //
+
+        return Cv::orderBy('id', 'DESC')->paginate(15);
     }
 
     /**
