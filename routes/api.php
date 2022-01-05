@@ -6,6 +6,7 @@ use App\Models\Business;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\CvController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostCategory;
@@ -69,7 +70,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
 // Route::post('/business', [BusinessController::class, 'store']); 
     Route::apiResource('/jobs', JobController::class);
-    Route::apiResource('/cv_application', JobController::class);
+    Route::apiResource('/cvs', CvController::class);
     Route::apiResource('/select', ProController::class);
     Route::apiResource('products', ProductController::class);
     Route::group(['prefix' => 'products'], function (){
