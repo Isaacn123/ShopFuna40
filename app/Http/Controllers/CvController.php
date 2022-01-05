@@ -51,7 +51,7 @@ class CvController extends Controller
         $cvapplication ->lastName = $request->lastName;
         $cvapplication ->phone = $request->phone;
         $cvapplication ->email = $request->email;
-        $cvapplication ->address = $request->address;
+        // $cvapplication ->address = $request->address;
         $cvapplication ->user_id = Auth::user()->id;
         $cvapplication ->profession = $request->profession;
         $cvapplication ->about = $request->about;

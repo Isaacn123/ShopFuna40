@@ -20,6 +20,7 @@ class CreateCvsTable extends Migration
             $table->string('lastName');
             $table->string('about');
             $table->string('email');
+            $table->string('address')->nullable();
             $table->string('phone');
             $table->string('slug') ->nullable();
             $table->string('pdf_file');
