@@ -69,6 +69,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
 // Route::post('/business', [BusinessController::class, 'store']); 
     Route::apiResource('/jobs', JobController::class);
+    Route::apiResource('/cvs', JobController::class);
     Route::apiResource('/select', ProController::class);
     Route::apiResource('products', ProductController::class);
     Route::group(['prefix' => 'products'], function (){

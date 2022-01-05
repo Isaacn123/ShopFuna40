@@ -16,6 +16,7 @@ class CreateCvsTable extends Migration
         Schema::create('cvs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('firstName');
+            $table->integer('user_id');
             $table->string('lastName');
             $table->string('about');
             $table->string('email');
