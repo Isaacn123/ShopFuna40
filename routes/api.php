@@ -29,9 +29,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+// Route::get('auth/login', 'Auth\AuthController@getLogin');
+// Route::post('auth/login', 'Auth\AuthController@postLogin');
+// Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 
 
@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('profile_edit_image', [UserAuthController::class, 'profile_edit_image']); 
     Route::get('/profile',[UserAuthController::class, 'profile']); // done
     Route::post('add_address', [UserAuthController::class, 'add_address']); 
-   
+    Route::delete('cvs/delete/{id}', [CvController::class, 'delete']);
     
    
 }); 
@@ -69,8 +69,9 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 // Route::get('/business',[BusinessController::class, 'index']); 
 
 // Route::post('/business', [BusinessController::class, 'store']); 
-    Route::Resource('/jobs', JobController::class);
-    Route::Resource('/cvs', CvController::class);
+  
+    Route::apiResource('/jobs', JobController::class);
+    Route::apiResource('/cvs', CvController::class);
     Route::apiResource('/select', ProController::class);
     Route::apiResource('products', ProductController::class);
     Route::group(['prefix' => 'products'], function (){
