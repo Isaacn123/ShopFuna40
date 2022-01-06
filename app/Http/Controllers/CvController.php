@@ -153,11 +153,11 @@ class CvController extends Controller
         //
         $cvs = Cv::find($id);
         $cvs->delete();
-        $response = response([
+        $response = [
             'message' => 'product successfully Deleted',
             'success' => true,
 
-        ], response::HTTP_CREATED);
+        ];
 
         return $response;
     }
