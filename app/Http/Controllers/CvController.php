@@ -7,6 +7,7 @@ use App\Models\Cv;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCvRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdateCvRequest;
 
 class CvController extends Controller
 {
@@ -115,9 +116,17 @@ class CvController extends Controller
      * @param  \App\Models\Cv  $cv
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cv $cv)
+    public function update(UpdateCvRequest $request, Cv $cv)
     {
         //
+       
+        $cvs = $cv->update($request->all());
+
+        return [
+            "data" => $cvs,
+            "success" => 'cvs successfully Updated',
+            "status" => 200
+        ];
     }
 
     /**
@@ -129,5 +138,12 @@ class CvController extends Controller
     public function destroy(Cv $cv)
     {
         //
+
+        $cvs = $cv->delete();
+        $response = response([
+            'message' => 'product successfully Deleted',
+            'success' => true,
+
+        ], response::HTTP_CREATED);
     }
 }
