@@ -116,7 +116,7 @@ class CvController extends Controller
      * @param  \App\Models\Cv  $cv
      * @return \Illuminate\Http\Response
      */
-    public function update(Cv $request, $id)
+    public function update(Request $request, $id)
     {
         //
 
