@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Symfony\Component\HttpFoundation\ParameterBag;
-
+use Illuminate\Support\Arr;
 /**
  * @author https://github.com/Stunext
  *
@@ -88,7 +88,13 @@ class HandlePutFormData
 	                   unlink($localFileName);
 	                });
 	            } else {
-	                $data[$fieldName] = $content;
+	                // $data[$fieldName] = $content;
+
+					parse_str($fieldName.'=__INPUT__', $parsedInput);
+					$dottedInput = Arr::dot($parsedInput);
+					$targetInput = Arr::add([], array_key_first($dottedInput), $content);
+
+					$data = array_merge_recursive($data, $targetInput);
 	            }
 	        }
         }
