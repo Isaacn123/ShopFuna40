@@ -30,7 +30,7 @@ class HandlePutFormData
         if ($request->method() == 'POST' or $request->method() == 'GET')
         {
             return $next($request);
-        }
+		}
         if (preg_match('/multipart\/form-data/', $request->headers->get('Content-Type')) or preg_match('/multipart\/form-data/', $request->headers->get('content-type')))
         {
             $parameters = $this->decode();
@@ -76,21 +76,31 @@ class HandlePutFormData
 	            if ($fileName !== null) {
 	                $localFileName = tempnam(sys_get_temp_dir(), 'sfy');
 	                file_put_contents($localFileName, $content);
-	                $files[$fieldName] = array(
+
+					$arr = array(
 	                    'name' => $fileName,
 	                    'type' => $headers['content-type'],
 	                    'tmp_name' => $localFileName,
 	                    'error' => 0,
 	                    'size' => filesize($localFileName)
-	                );
+					);
+
+					if(substr($fieldName, -2, 2) == '[]') {
+						$fieldName = substr($fieldName, 0, strlen($fieldName)-2);
+					}
+
+					if(array_key_exists($fieldName, $files)) {
+						array_push($files[$fieldName], $arr);
+					} else {
+						$files[$fieldName] = array($arr);
+					}
+
 	                // register a shutdown function to cleanup the temporary file
-	                register_shutdown_function(function() use($localFileName)  {
+	                register_shutdown_function(function() use($localFileName) {
 	                   unlink($localFileName);
 	                });
 	            } else {
-	                // $data[$fieldName] = $content;
-
-					parse_str($fieldName.'=__INPUT__', $parsedInput);
+	                parse_str($fieldName.'=__INPUT__', $parsedInput);
                     $dottedInput = Arr::dot($parsedInput);
                     $targetInput = Arr::add([], array_keys($dottedInput)[0], $content);
 
