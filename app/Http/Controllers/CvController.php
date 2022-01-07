@@ -122,7 +122,7 @@ class CvController extends Controller
     {
         //
 
-        throw new cvException;
+        // throw new cvException;
 
         $cvs = Cv::find($request->id);
 
