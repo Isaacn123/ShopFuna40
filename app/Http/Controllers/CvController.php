@@ -116,34 +116,33 @@ class CvController extends Controller
      * @param  \App\Models\Cv  $cv
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCvRequest $request, $id)
+    public function update($id)
     {
         //
 
         $cvs = Cv::find($id);
 
-        if($cvs){
+        // if($cvs){
 
             // $page->image = 'imagepath';
 
-        $nameF = "Cv_" . $request->firstName . time();
-        if(isset($request->pdf_file)){
+        $nameF = "Cv_" . $cvs->firstName . time();
+        if(isset($cvs->pdf_file)){
             $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
             $imagename = $result->getFileName();
             $extension = $result->getExtension();
-    
             $name = $imagename . "." . $extension;
             $path = $result->getSecurePath();
             $cvs->pdf_file = $name;
             // $imageID = $result->getPublicId();
 
 
-        }
-            $cvs = $request->all();
-            $cvs->save();
+        // }
+           
         }
        
-        
+        // $cvs = $request->all();
+        $cvs->save();
 
         return [
             "data" => $cvs,
