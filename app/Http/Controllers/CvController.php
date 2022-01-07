@@ -116,13 +116,15 @@ class CvController extends Controller
      * @param  \App\Models\Cv  $cv
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCvRequest $request, $id)
+    public function update(Cv $request, $id)
     {
         //
 
         // $cvs = Cv::find($id);
 
         // if($cvs){
+
+            // $res = $request->
 
             // $page->image = 'imagepath';
 
@@ -141,7 +143,10 @@ class CvController extends Controller
            
         // }
 
-        return $id;
+        return [
+            'id' => $id,
+            'name' => $result->firstName
+        ];
        
         // $cvs = $request->all();
         // $cvs->save();
