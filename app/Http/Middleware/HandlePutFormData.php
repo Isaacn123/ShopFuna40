@@ -27,10 +27,10 @@ class HandlePutFormData
      */
     public function handle($request, Closure $next)
     {
-        if ($request->method() == 'POST' or $request->method() == 'GET')
-        {
-            return $next($request);
-		}
+        // if ($request->method() == 'POST' or $request->method() == 'GET')
+        // {
+        //     return $next($request);
+		// }
         if (preg_match('/multipart\/form-data/', $request->headers->get('Content-Type')) or preg_match('/multipart\/form-data/', $request->headers->get('content-type')))
         {
             $parameters = $this->decode();
