@@ -144,7 +144,7 @@ class CvController extends Controller
         // }
 
         return [
-            'name' => $cv->firstName
+            'name' => $request->firstName
         ];
        
         // $cvs = $request->all();
