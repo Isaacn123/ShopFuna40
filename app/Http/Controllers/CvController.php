@@ -139,7 +139,7 @@ class CvController extends Controller
 
 
         }
-
+            $cvs = $request->all();
             $cvs->save();
         }
        
