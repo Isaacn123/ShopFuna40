@@ -146,7 +146,7 @@ class CvController extends Controller
         // }
 
         return [
-            'data' => $cv,
+            // 'data' => $cv,
             'id' => $request->id,
             'user_id' => $request->user_id,
             'name' => $request->firstName
