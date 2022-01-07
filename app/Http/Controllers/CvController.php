@@ -116,7 +116,7 @@ class CvController extends Controller
      * @param  \App\Models\Cv  $cv
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cv $cv , $id)
     {
         //
 
@@ -145,7 +145,7 @@ class CvController extends Controller
 
         return [
             'id' => $id,
-            'name' => $request->firstName
+            'name' => $cv->firstName
         ];
        
         // $cvs = $request->all();
