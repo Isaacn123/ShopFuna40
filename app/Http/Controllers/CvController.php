@@ -147,7 +147,7 @@ class CvController extends Controller
             'id' => $request->id,
             'user_id' => $request->user_id,
             'name' => $request->firstName,
-            'file' => $request->path_file,
+            'file' => $request->pdf_file,
         ];
        
         // $cvs = $request->all();
