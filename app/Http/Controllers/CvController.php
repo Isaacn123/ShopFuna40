@@ -126,7 +126,7 @@ class CvController extends Controller
 
             // $page->image = 'imagepath';
 
-            $nameF = "Cv_" . $request->firstName . time();
+        $nameF = "Cv_" . $request->firstName . time();
         if(isset($request->pdf_file)){
             $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
             $imagename = $result->getFileName();
