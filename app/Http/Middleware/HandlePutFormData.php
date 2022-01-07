@@ -100,11 +100,12 @@ class HandlePutFormData
 	                   unlink($localFileName);
 	                });
 	            } else {
-	                parse_str($fieldName.'=__INPUT__', $parsedInput);
-                    $dottedInput = Arr::dot($parsedInput);
-                    $targetInput = Arr::add([], array_keys($dottedInput)[0], $content);
+					$data[$fieldName] = $content;
+	                // parse_str($fieldName.'=__INPUT__', $parsedInput);
+                    // $dottedInput = Arr::dot($parsedInput);
+                    // $targetInput = Arr::add([], array_keys($dottedInput)[0], $content);
 
-                    $data = array_merge_recursive($data, $targetInput);
+                    // $data = array_merge_recursive($data, $targetInput);
 	            }
 	        }
         }
