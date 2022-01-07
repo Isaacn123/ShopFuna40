@@ -122,35 +122,28 @@ class CvController extends Controller
 
         $cvs = Cv::find($request->id);
 
-        // $cvs->lastName = $request->firstName;
 
-        // if($cvs){
-
-            // $res = $request->
-
-            // $page->image = 'imagepath';
-
-        // $nameF = "Cv_" . $cvs->firstName . time();
-        // if(isset($cvs->pdf_file)){
-        //     $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
-        //     $imagename = $result->getFileName();
-        //     $extension = $result->getExtension();
-        //     $name = $imagename . "." . $extension;
-        //     $path = $result->getSecurePath();
-        //     $cvs->pdf_file = $name;
-            // $imageID = $result->getPublicId();
+        $nameF = "Cv_" . $cvs->firstName . time();
+        if(isset($cvs->path_file)){
+            $result = $request->path_file->storeOnCloudinaryAs('cv_application', $nameF);
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
+            $name = $imagename . "." . $extension;
+            $path = $result->getSecurePath();
+            $cvs->pdf_file = $name;
+            $imageID = $result->getPublicId();
 
 
-        // }
+        }
            
-        // }
+    
 
         return [
             // 'data' => $cv,
             'id' => $request->id,
             'user_id' => $request->user_id,
             'name' => $request->firstName,
-            'file' => $request->pdf_file,
+            'file' => $request->path_file,
         ];
        
         // $cvs = $request->all();
