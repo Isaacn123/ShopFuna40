@@ -9,6 +9,8 @@ use App\Http\Requests\StoreCvRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdateCvRequest;
 
+use App\Exceptions\cvException;
+
 class CvController extends Controller
 {
 
@@ -119,6 +121,8 @@ class CvController extends Controller
     public function update(UpdateCvRequest $request, Cv $cv)
     {
         //
+
+        throw new cvException;
 
         $cvs = Cv::find($request->id);
 
