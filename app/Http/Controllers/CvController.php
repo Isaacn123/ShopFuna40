@@ -120,35 +120,37 @@ class CvController extends Controller
     {
         //
 
-        $cvs = Cv::find($id);
+        // $cvs = Cv::find($id);
 
         // if($cvs){
 
             // $page->image = 'imagepath';
 
-        $nameF = "Cv_" . $cvs->firstName . time();
-        if(isset($cvs->pdf_file)){
-            $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
-            $imagename = $result->getFileName();
-            $extension = $result->getExtension();
-            $name = $imagename . "." . $extension;
-            $path = $result->getSecurePath();
-            $cvs->pdf_file = $name;
+        // $nameF = "Cv_" . $cvs->firstName . time();
+        // if(isset($cvs->pdf_file)){
+        //     $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
+        //     $imagename = $result->getFileName();
+        //     $extension = $result->getExtension();
+        //     $name = $imagename . "." . $extension;
+        //     $path = $result->getSecurePath();
+        //     $cvs->pdf_file = $name;
             // $imageID = $result->getPublicId();
 
 
         // }
            
-        }
+        // }
+
+        return $id;
        
         // $cvs = $request->all();
-        $cvs->save();
+        // $cvs->save();
 
-        return [
-            "data" => $cvs,
-            "success" => 'cvs successfully Updated',
-            "status" => 200
-        ];
+        // return [
+        //     "data" => $cvs,
+        //     "success" => 'cvs successfully Updated',
+        //     "status" => 200
+        // ];
     }
 
     /**
