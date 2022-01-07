@@ -84,11 +84,17 @@ class HandlePutFormData
 	                    'size' => filesize($localFileName)
 	                );
 	                // register a shutdown function to cleanup the temporary file
-	                register_shutdown_function(function() {
+	                register_shutdown_function(function() use($localFileName)  {
 	                   unlink($localFileName);
 	                });
 	            } else {
-	                $data[$fieldName] = $content;
+	                // $data[$fieldName] = $content;
+
+					parse_str($fieldName.'=__INPUT__', $parsedInput);
+                    $dottedInput = Arr::dot($parsedInput);
+                    $targetInput = Arr::add([], array_keys($dottedInput)[0], $content);
+
+                    $data = array_merge_recursive($data, $targetInput);
 	            }
 	        }
         }
