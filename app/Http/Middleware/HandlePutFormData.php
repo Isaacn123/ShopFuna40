@@ -112,5 +112,4 @@ class HandlePutFormData
 
         return ["inputs" => $fields->all(), "files" => $files];
 	}
-
 }
