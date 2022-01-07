@@ -144,7 +144,6 @@ class CvController extends Controller
         // }
 
         return [
-            'id' => $id,
             'name' => $cv->firstName
         ];
        
