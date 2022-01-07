@@ -120,7 +120,7 @@ class CvController extends Controller
     {
         //
 
-        // $cvs = Cv::find($id);
+        $cvs = Cv::find($request->id);
 
         // if($cvs){
 
@@ -144,6 +144,8 @@ class CvController extends Controller
         // }
 
         return [
+            'id' => $result->id,
+            'user_id' => $request->user_id,
             'name' => $request->firstName
         ];
        
