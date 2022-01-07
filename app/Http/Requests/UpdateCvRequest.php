@@ -25,6 +25,8 @@ class UpdateCvRequest extends FormRequest
     {
         return [
             //
+            'pdf_file' => 'required',
+            'firstName' => 'required',
         ];
     }
 }
