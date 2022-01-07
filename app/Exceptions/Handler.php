@@ -37,6 +37,11 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         //   dd($e);
+
+        if ($exception instanceof ValidationException && $request->expectsJson()) {
+            return response()->json(['message' => 'The given data was invalid.', 'errors' => $exception->validator->getMessageBag()], 422);
+        }
+      
         });
 
         // if ($exception instanceof ValidationException && $request->expectsJson()) {
