@@ -208,7 +208,7 @@ class CvController extends Controller
 
         // throw new cvException;
 
-        $cvs = Cv::find($request->id);
+        // $cvs = Cv::find($request->id);
 
         $nameF = "Cv_" . $request->firstName . time();
         if(isset($request->pdf_file)){
