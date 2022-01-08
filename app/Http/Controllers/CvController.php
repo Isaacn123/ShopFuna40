@@ -244,7 +244,7 @@ class CvController extends Controller
         return [
             'Public' => $id,
             'id' => $request->id,
-            'public_id' => $request->public_id
+            'public_id' => $request->public_id,
             'user_id' => $request->user_id,
             'name' => $request->firstName,
             'file' => $request->pdf_file,
