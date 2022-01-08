@@ -208,7 +208,7 @@ class CvController extends Controller
 
         // throw new cvException;
 
-         $cvs = Cv::find($request->id);
+        $cvs = Cv::find($request->id);
 
         $nameF = "Cv_" . $request->firstName . time();
         if(isset($request->pdf_file)){
@@ -218,12 +218,12 @@ class CvController extends Controller
     
             $name = $imagename . "." . $extension;
             $path = $result->getSecurePath();
-            // $cvapplication->pdf_file = $name;
+            $cvs->pdf_file = $name;
             // $imageID = $result->getPublicId();
 
 
         }
-           
+        $cvs->save();
     
 
         return [
@@ -232,6 +232,7 @@ class CvController extends Controller
             'user_id' => $request->user_id,
             'name' => $request->firstName,
             'file' => $request->pdf_file,
+            'data' => $cvs
         ];
        
     }
