@@ -219,22 +219,22 @@ class CvController extends Controller
 
         if($cvs){
        
-            // $result =   cloudinary()->destroy($request->file_id);
-            // // dd($result); 
+            $result =   cloudinary()->destroy($request->public_id);
+            // dd($result); 
 
-            // if(isset($request->pdf_file)){
-            //     $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
-            //     $imagename = $result->getFileName();
-            //     $extension = $result->getExtension();
+            if(isset($request->pdf_file)){
+                $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
+                $imagename = $result->getFileName();
+                $extension = $result->getExtension();
         
-            //     $name = $imagename . "." . $extension;
-            //     $path = $result->getSecurePath();
-            //     $id   =  $result->getPublicId();
-            //     $cvs->pdf_file = $name;
-            //     $imageID = $result->getPublicId();
+                $name = $imagename . "." . $extension;
+                $path = $result->getSecurePath();
+                $id   =  $result->getPublicId();
+                $cvs->pdf_file = $name;
+                $imageID = $result->getPublicId();
     
     
-            // }
+            }
         }
 
      
