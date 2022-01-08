@@ -222,18 +222,18 @@ class CvController extends Controller
             $result =   cloudinary()->destroy($cvs->pdf_file);
             // dd($result); 
 
-            if(isset($request->pdf_file)){
-                $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
-                $imagename = $result->getFileName();
-                $extension = $result->getExtension();
+            // if(isset($request->pdf_file)){
+            //     $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
+            //     $imagename = $result->getFileName();
+            //     $extension = $result->getExtension();
         
-                $name = $imagename . "." . $extension;
-                $path = $result->getSecurePath();
-                $cvs->pdf_file = $name;
-                $imageID = $result->getPublicId();
+            //     $name = $imagename . "." . $extension;
+            //     $path = $result->getSecurePath();
+            //     $cvs->pdf_file = $name;
+            //     $imageID = $result->getPublicId();
     
     
-            }
+            // }
         }
 
      
@@ -246,7 +246,7 @@ class CvController extends Controller
             'user_id' => $request->user_id,
             'name' => $request->firstName,
             'file' => $request->pdf_file,
-            'data' => $cvs
+            'data' => $cvs->pdf_file
         ];
        
     }
