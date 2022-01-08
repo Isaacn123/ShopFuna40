@@ -64,7 +64,8 @@ class CvController extends Controller
         $cvapplication ->zipcode = $request-> zipcode;
 
         $nameF = "Cv_" . $request->firstName . time();
-        if(isset($request->pdf_file)){
+
+          if(isset($request->pdf_file)){
             $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
             $imagename = $result->getFileName();
             $extension = $result->getExtension();
@@ -73,9 +74,19 @@ class CvController extends Controller
             $path = $result->getSecurePath();
             $cvapplication->pdf_file = $name;
             // $imageID = $result->getPublicId();
+          }
+        // if(isset($request->pdf_file)){
+        //     $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
+        //     $imagename = $result->getFileName();
+        //     $extension = $result->getExtension();
+    
+        //     $name = $imagename . "." . $extension;
+        //     $path = $result->getSecurePath();
+        //     $cvapplication->pdf_file = $name;
+        //     // $imageID = $result->getPublicId();
 
 
-        }
+        // }
 
         // $cvapplication->save();
         $response = response([
@@ -126,18 +137,18 @@ class CvController extends Controller
         $cvs = Cv::find($request->id);
 
 
-        $nameF = "Cv_" . $cvs->firstName . time();
-        if(isset($cvs->path_file)){
-            $result = $request->path_file->storeOnCloudinaryAs('cv_application', $nameF);
-            $imagename = $result->getFileName();
-            $extension = $result->getExtension();
-            $name = $imagename . "." . $extension;
-            $path = $result->getSecurePath();
-            $cvs->pdf_file = $name;
-            $imageID = $result->getPublicId();
+        // $nameF = "Cv_" . $cvs->firstName . time();
+        // if(isset($cvs->path_file)){
+        //     $result = $request->path_file->storeOnCloudinaryAs('cv_application', $nameF);
+        //     $imagename = $result->getFileName();
+        //     $extension = $result->getExtension();
+        //     $name = $imagename . "." . $extension;
+        //     $path = $result->getSecurePath();
+        //     $cvs->pdf_file = $name;
+        //     $imageID = $result->getPublicId();
 
 
-        }
+        // }
            
     
 
