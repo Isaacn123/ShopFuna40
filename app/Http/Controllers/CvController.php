@@ -78,9 +78,9 @@ class CvController extends Controller
 
         }
 
-        $cvapplication->save();
+        // $cvapplication->save();
         $response = response([
-            "data" => $cvapplication, 
+            "data" => $request->pdf_file, 
             "status" => 'ok',
             "success" => true,
             "message" => "Cv Application created successfully"
