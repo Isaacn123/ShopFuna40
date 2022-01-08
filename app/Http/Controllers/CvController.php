@@ -220,7 +220,7 @@ class CvController extends Controller
         if($cvs){
        
             $result =   cloudinary()->destroy($request->file_id);
-            dd($result); 
+            // dd($result); 
 
             if(isset($request->pdf_file)){
                 $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
