@@ -75,22 +75,12 @@ class CvController extends Controller
             $cvapplication->pdf_file = $name;
             // $imageID = $result->getPublicId();
           }
-        // if(isset($request->pdf_file)){
-        //     $result = $request->pdf_file->storeOnCloudinaryAs('cv_application', $nameF);
-        //     $imagename = $result->getFileName();
-        //     $extension = $result->getExtension();
-    
-        //     $name = $imagename . "." . $extension;
-        //     $path = $result->getSecurePath();
-        //     $cvapplication->pdf_file = $name;
-        //     // $imageID = $result->getPublicId();
+   
 
-
-        // }
-
-        // $cvapplication->save();
+       $cvapplication->save();
         $response = response([
-            "data" => $request->pdf_file, 
+            "data" => $cvapplication,
+            "uploaded" => $request->pdf_file, 
             "status" => 'ok',
             "success" => true,
             "message" => "Cv Application created successfully"
