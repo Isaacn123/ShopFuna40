@@ -219,7 +219,7 @@ class CvController extends Controller
 
         if($cvs){
        
-            $result =   cloudinary()->destroy($cvs->pdf_file);
+            $result =   cloudinary()->destroy("cv_application/Cv_Nsamaba1641644304.pdf");
             dd($result); 
 
             // if(isset($request->pdf_file)){
@@ -237,7 +237,7 @@ class CvController extends Controller
         }
 
      
-        $cvs->save();
+        // $cvs->save();
     
 
         return [
