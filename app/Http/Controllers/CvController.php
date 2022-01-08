@@ -217,7 +217,7 @@ class CvController extends Controller
         $nameF = "Cv_" . $request->firstName . time();
         if(isset($request->pdf_file)){
           
-          $result =   cloudinary()->upload->destroy($cvs->pdf_file);
+          $result =   cloudinary()->destroy($cvs->pdf_file);
 
             dd($result);
 
