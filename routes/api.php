@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/profile',[UserAuthController::class, 'profile']); // done
     Route::post('add_address', [UserAuthController::class, 'add_address']); 
     Route::delete('cvs/delete/{id}', [CvController::class, 'delete']);
+    Route::put('cvs/updatecv/{id}', [CvController::class, 'updatecv']);
     
    
 }); 
