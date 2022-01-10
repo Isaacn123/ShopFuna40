@@ -61,7 +61,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('add_address', [UserAuthController::class, 'add_address']); 
     Route::delete('cvs/delete/{id}', [CvController::class, 'delete']);
     Route::post('cvs/updatecv/{id}', [CvController::class, 'updatecv']);
-    Route::get('/all_address', 'api\UserAuthController@all_address'); 
+    Route::get('all_address', [UserAuthController::class,'all_address']); 
     
    
 }); 
