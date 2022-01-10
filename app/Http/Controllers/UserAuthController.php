@@ -236,6 +236,15 @@ class UserAuthController extends Controller
    }
 
 
+
+    // All Addresss
+    public function all_address()
+    {
+        $address = Address::where('user_id',Auth::user()->id)->orderBy('id','DESC')->get();
+        return response()->json(['msg' => 'All Addresses','data' => $address ,'success' => true], 200);
+    }
+
+
    public function add_address(Request $request){
     $request->validate([
       'label' => 'bail|required',
