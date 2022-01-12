@@ -31,8 +31,8 @@ class CreateBusinessesTable extends Migration
             $table->string('zipcode')->nullable();;
             $table->string('fax')->nullable();;
             $table->string('city')->nullable();;
-            $table->string('image')->default('noLogo.png');
-            $table->string('featured_image')->default('no_featuredImage.jpg');
+            $table->string('image')->default('business/noLogo.png');
+            $table->string('featured_image')->default('featured/no_featuredImage.jpg');
             $table->timestamps();
         });
     }
