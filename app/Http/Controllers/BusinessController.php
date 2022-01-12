@@ -32,7 +32,7 @@ class BusinessController extends Controller
     {
         //->with('businesses', Business::all())->get()
         $featuredvalue = 1;
-        $business = Business::all();
+        $business = Business::orderBy('id', 'DESC')->paginate(15);
 
         // $user = User::with('User')->find(Auth::user()->id);
         
