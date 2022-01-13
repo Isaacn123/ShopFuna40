@@ -37,7 +37,7 @@
 
     <div class="card card-body">
     
-                <form action="{{route('sub-category.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('business_sub-category.store')}}" method="post" enctype="multipart/form-data">
 
                 @csrf
 
@@ -45,7 +45,7 @@
                       <label for="selectcategory">select Category</label>
                       <select  name="category_name"  id="selectcategory" class="form-control">
                       <option value="" selected disabled hidden>Choose Category here</option>
-                       @foreach($businesscategory as $category)
+                       @foreach($businesscategories as $category)
                        <!--  $category->id && -->
                       <option onclick="myFunction()" value="{{ $category->name }}" >{{$category->name}}</option>
                        @endforeach

@@ -19,7 +19,7 @@ class BussinessSubCategoryController extends Controller
         //
         $limit = 25;
 
-        return view('business_subcategory.index')->with('business_subcategories', SubCategory::orderBy('id', 'desc')->paginate($limit));
+        return view('business_subcategory.index')->with('business_subcategories', BussinessSubCategory::orderBy('id', 'desc')->paginate($limit));
 
 
     }
