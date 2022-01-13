@@ -43,7 +43,7 @@
 
              <!-- Pagination here  -->
              {{
-                $subcategories ->links() 
+                $business_subcategories ->links() 
              }}
 
 
