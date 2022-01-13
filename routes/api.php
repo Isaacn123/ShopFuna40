@@ -14,6 +14,8 @@ use App\Http\Controllers\PostSubCategory;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProController;
+use App\Http\Controllers\MessageController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -45,6 +47,7 @@ Route::get('category', [PostCategory::class, 'index']);
 Route::get('sub_category/{id}', [PostSubCategory::class, 'index']); 
 Route::get('business/{category}', [BusinessController::class, 'business']); 
 Route::post('apply', [JobApplicationController::class, 'store']); 
+Route::apiResource('messages',MessageController::class); 
 
 // protected Routes
 Route::group(['middleware' => 'auth:sanctum'], function () {

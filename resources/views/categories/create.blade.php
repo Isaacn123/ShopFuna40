@@ -13,7 +13,7 @@
 
     <div class="card-header">
         
-        {{isset($category) ? 'Edit Category' : 'Create Category'}}
+        {{isset($category) ? 'Edit E-Shop Category' : 'Create E-Shop Category'}}
     </div>
 
    <div class="card-body">
@@ -62,7 +62,7 @@
         <div class="form-group mt-2">
          <button  class="btn btn-success" >
            
-             {{isset($category) ? 'Edit Category' : '  Add Category'}}
+             {{isset($category) ? 'Edit E-Shop Category' : '  Add E-Shop Category'}}
          </button>
         </div>
 

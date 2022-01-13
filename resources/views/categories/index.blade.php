@@ -2,13 +2,13 @@
 @section('content')
  <!-- <div class="container"> -->
  <div class="d-flex justify-content-end mb-2">
-     <a href="{{route('sub-category.create')}}" class="btn btn-danger mr-2">Add SubCategory</a>
-    <a href="{{ route('category.create')}}" class="btn btn-success">Add Category</a>
+     <a href="{{route('sub-category.create')}}" class="btn btn-danger mr-2">Add E-Shop SubCategory</a>
+    <a href="{{ route('category.create')}}" class="btn btn-success">Add E-Shop Category</a>
 </div>
 
 <div class="card card-default">
     <div class="card-header">
-        Category
+    E-Shop Category
     </div>
 
     <div class="card card-body">
