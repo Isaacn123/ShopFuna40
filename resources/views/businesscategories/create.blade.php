@@ -13,7 +13,7 @@
 
     <div class="card-header">
         
-        {{isset($businesscategory) ? 'Edit Category' : 'Create Category'}}
+        {{isset($businesscategory) ? 'Edit BusinessCategory' : 'Create BusinessCategory'}}
     </div>
 
    <div class="card-body">
@@ -38,7 +38,7 @@
        <form action="{{ isset($businesscategory) ? route('businesscategory.update', $businesscategory->id) : route('businesscategory.store')}}" method="POST" enctype="multipart/form-data" >
        <!-- @csrf -->
        @csrf
-         @if(isset($category))
+         @if(isset($businesscategory))
           <!-- {{ csrf_field() }}
           {{ method_field('PUT') }} -->
           @method('PUT')
@@ -62,7 +62,7 @@
         <div class="form-group mt-2">
          <button  class="btn btn-success" >
            
-             {{isset($category) ? 'Edit Category' : '  Add Category'}}
+             {{isset($businesscategory) ? 'Edit BusinessCategory' : '  Add BusinessCategory'}}
          </button>
         </div>
 

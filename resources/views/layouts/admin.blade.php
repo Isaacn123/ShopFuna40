@@ -255,9 +255,9 @@
               </div>
               <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="{{route('category.create')}}">Create Category</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="{{route('category.index')}}">Categories</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="{{route('sub-category.index')}}">Sub Categories</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('businesscategories.create')}}">Create BusinessCategory</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('businesscategories.index')}}">BusinessCategories</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('sub-category.index')}}">Business Sub Categories</a></li>
                 </ul>
               </div>
             </li>

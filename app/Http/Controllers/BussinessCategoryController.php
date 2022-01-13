@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BussinessCategory;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateBussinessCategoryRequest;
 
 class BussinessCategoryController extends Controller
 {
@@ -30,6 +31,7 @@ class BussinessCategoryController extends Controller
     public function create()
     {
         //
+        return view('businesscategories.create');
     }
 
     /**
@@ -59,7 +61,7 @@ class BussinessCategoryController extends Controller
     }
        
         $category->save();
-  return  redirect()->route('category.index');
+  return  redirect()->route('businesscategory.index');
     }
 
     /**
@@ -82,6 +84,8 @@ class BussinessCategoryController extends Controller
     public function edit(BussinessCategory $bussinessCategory)
     {
         //
+
+        return view('businesscategories.create')->with('businesscategory', $category);
     }
 
     /**
@@ -91,9 +95,15 @@ class BussinessCategoryController extends Controller
      * @param  \App\Models\BussinessCategory  $bussinessCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BussinessCategory $bussinessCategory)
+    public function update(UpdateBussinessCategoryRequest  $request, BussinessCategory $bussinessCategory)
     {
         //
+
+        session()->flash('success', 'Category has been Updated successfully!');
+
+        $category->update($request->all());
+
+        return redirect()->route('category.index');
     }
 
     /**
