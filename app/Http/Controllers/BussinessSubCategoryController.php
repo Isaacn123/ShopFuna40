@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BussinessSubCategory;
 use Illuminate\Http\Request;
+use App\Http\Controllers\BusinessCategory;
 use App\Http\Requests\StoreBussinessSubCategoryRequest;
 
 class BussinessSubCategoryController extends Controller
