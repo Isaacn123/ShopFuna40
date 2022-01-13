@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BussinessSubCategory;
 use Illuminate\Http\Request;
-use App\Http\Controllers\BusinessCategory;
+use App\Http\Controllers\BussinessCategory;
 use App\Http\Requests\StoreBussinessSubCategoryRequest;
 
 class BussinessSubCategoryController extends Controller
@@ -32,7 +32,7 @@ class BussinessSubCategoryController extends Controller
     public function create()
     {
         //
-        return view('business_subcategory.create')->with('businesscategories', BusinessCategory::all());
+        return view('business_subcategory.create')->with('businesscategories', BussinessCategory::all());
     }
 
     /**
