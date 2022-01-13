@@ -257,7 +257,7 @@
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item"> <a class="nav-link" href="{{route('businesscategory.create')}}">Create BusinessCategory</a></li>
                   <li class="nav-item"> <a class="nav-link" href="{{route('businesscategory.index')}}">BusinessCategories</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="{{route('sub-category.index')}}">Business Sub Categories</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{route('business_sub-category.index')}}">Business Sub Categories</a></li>
                 </ul>
               </div>
             </li>
