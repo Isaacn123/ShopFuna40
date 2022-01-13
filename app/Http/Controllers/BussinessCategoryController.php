@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BussinessCategory;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateBussinessCategoryRequest;
+use App\Http\Requests\StoreBussinessCategoryRequest;
 
 class BussinessCategoryController extends Controller
 {
