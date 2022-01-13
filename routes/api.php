@@ -16,6 +16,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BusinessAllCategories;
+use App\Http\Controllers\BusinessAllSubCategories;
 
 /*
 |--------------------------------------------------------------------------
