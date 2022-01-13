@@ -25,6 +25,6 @@ class BussinessSubCategory extends Model
 
    public function businesscategories()
    {
-     return $this->belongsTo('App\Models\Category', 'id','id');
+     return $this->belongsTo('App\Models\BussinessCategory', 'id','id');
    }
 }

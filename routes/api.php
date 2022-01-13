@@ -15,6 +15,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\BusinessAllCategories;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,9 @@ Route::post('login', [UserAuthController::class, 'login']);
 
 Route::get('business',[BusinessController::class, 'index']); 
 Route::get('category', [PostCategory::class, 'index']); 
+Route::get('businesscategory', [BusinessAllCategories::class, 'index']); 
+Route::get('businesssub_category/{id}', [BusinessAllSubCategories::class, 'index']); 
+
 Route::get('sub_category/{id}', [PostSubCategory::class, 'index']); 
 Route::get('business/{category}', [BusinessController::class, 'business']); 
 Route::post('apply', [JobApplicationController::class, 'store']); 
