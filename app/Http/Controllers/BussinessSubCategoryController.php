@@ -45,7 +45,7 @@ class BussinessSubCategoryController extends Controller
     {
         //
 
-        $subcategory = new BusinessSubcategory(); 
+        $subcategory = new BussinessSubCategory(); 
         $subcategory->subcategoryname = $request->subcategoryname;
         $subcategory->slug = $request->slug;
         $subcategory->category_id = $request->category_id;
