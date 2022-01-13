@@ -32,7 +32,7 @@
 @endif
 
     <div class="card-header">
-        Add SubCategory
+        Add Business SubCategory
     </div>
 
     <div class="card card-body">
@@ -45,7 +45,7 @@
                       <label for="selectcategory">select Category</label>
                       <select  name="category_name"  id="selectcategory" class="form-control">
                       <option value="" selected disabled hidden>Choose Category here</option>
-                       @foreach($categories as $category)
+                       @foreach($businesscategory as $category)
                        <!--  $category->id && -->
                       <option onclick="myFunction()" value="{{ $category->name }}" >{{$category->name}}</option>
                        @endforeach
@@ -67,7 +67,7 @@
          </div>
 
                     <div class="form-group">
-                        <button class="btn btn-primary">Add SubCategory</button>
+                        <button class="btn btn-primary">Add Business SubCategory</button>
                     </div>
                 </form>
     
