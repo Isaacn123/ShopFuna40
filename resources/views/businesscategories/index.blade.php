@@ -49,7 +49,7 @@
        <!-- Pagination Section Here -->
 
        {{
-        $categories -> links()
+        $businesscategory -> links()
 
        }}
 
