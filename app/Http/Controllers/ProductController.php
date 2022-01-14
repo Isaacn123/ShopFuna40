@@ -96,7 +96,7 @@ class ProductController extends Controller
         if(isset($request->related_products)){
               
 
-        dd($request->all());
+        dd($request->related_products);
 
         }
 
@@ -113,6 +113,7 @@ class ProductController extends Controller
         
 
         // $product->save();
+        dd($request->related_products);
         $response = response([
             "data" => new ProductResource($product), 
             "status" => 'ok',
@@ -126,7 +127,7 @@ class ProductController extends Controller
         // ];
         //  return $response;
 
-        dd($request->all());
+        // dd($request->all());
     }
 
     /**
