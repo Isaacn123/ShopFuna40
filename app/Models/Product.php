@@ -33,9 +33,9 @@ class Product extends Model
         return $this->hasMany('App\Models\SubCategory');
     }
 
-    public function user()
-    {
-     return $this->has('App\Models\User');
-        // return $this->hasMany('user_id');
-    }
+    // public function user()
+    // {
+    //  return $this->has('App\Models\User');
+    //     // return $this->hasMany('user_id');
+    // }
 }
