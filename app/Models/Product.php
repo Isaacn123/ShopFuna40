@@ -32,4 +32,9 @@ class Product extends Model
     {
         return $this->hasMany('App\Models\SubCategory');
     }
+
+    public function user()
+    {
+        return $this->hasMany('App\Models\User');
+    }
 }
