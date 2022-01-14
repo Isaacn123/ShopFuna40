@@ -114,6 +114,7 @@ class ProductController extends Controller
 
         // $product->save();
         dd($request->related_products);
+        var_dump($request->related_products);
         $response = response([
             "data" => new ProductResource($product), 
             "status" => 'ok',
