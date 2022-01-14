@@ -37,9 +37,12 @@ class ProductController extends Controller
         //  return ProductResource::collection(Product::all());
 
         //  return ProductCollection::collection(Product::all());
-         $user = User::with('products')->find(Auth::user()->id);
-         return $user;
-        // return ProductCollection::collection(Product::orderBy('id', 'DESC')->paginate(15));
+        //  $user = User::with('products')->find(Auth::user()->id)->get();
+        //  return $user;
+
+        // return Product::with('user')->find(1);
+
+     return ProductCollection::collection(Product::orderBy('id', 'DESC')->paginate(15));
     }
 
     /**
@@ -74,6 +77,7 @@ class ProductController extends Controller
         $product ->category_id = $request->category_id;
         $product ->subCategory_id = $request->subCategory_id;
         $product ->stock = $request->stock;
+        $product ->phone = $request->phone;
         $product ->slug = $request-> slug;
         $nameF = "Product_" . time();
         if(isset($request->featured_image)){
@@ -89,11 +93,44 @@ class ProductController extends Controller
 
         }
 
+        if(isset($request->related_products)){
+            // related_products
+
+             $names = [];
+    foreach($request->file('related_products') as $image)
+    {
+        $destinationPath = 'related_products';
+        $result = $request->related_products->storeOnCloudinaryAs($destinationPath, $nameF);
+        $imagename = $result->getFileName();
+        $extension = $result->getExtension();
+        $names = $imagename . "." . $extension;
+        // $product->related_products = $name
+                 
+
+    }
+
+    $product->related_products = json_encode($names);
+
+        }
+
+            // $result = $request->featured_image->storeOnCloudinaryAs('products', $nameF);
+            // $imagename = $result->getFileName();
+            // $extension = $result->getExtension();
+    
+            // $name = $imagename . "." . $extension;
+            // $path = $result->getSecurePath();
+            // $product->featured_image = $name;
+            // $imageID = $result->getPublicId();
+
+
+        
+
         $product->save();
         $response = response([
             "data" => new ProductResource($product), 
             "status" => 'ok',
             "success" => true,
+            "pr" => $request->related_products,
             "message" => "product created successfully"
         ], 200);
         

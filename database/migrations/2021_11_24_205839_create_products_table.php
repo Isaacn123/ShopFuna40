@@ -30,6 +30,9 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->integer('discount');
             $table->string('slug');
+            $table->string('phone')->nullable();
+            $table->string('related_products')->nullable();
+            $table->string('products_video')->nullable();
             $table->string('featured_image')->default('products/no_featuredImage.jpg');
             $table->timestamps();
         });

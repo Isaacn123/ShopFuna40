@@ -30,6 +30,7 @@ class StoreProductRequest extends FormRequest
             'price' => 'required|max:10',
             'category_id' => 'required',
             'companyName' => 'required|max:255',
+            'phone' => 'required|max:255',
             'discount' => 'required|max:2', 
             'subCategory_id' => 'required',
             'stock' => 'required|max:6',
