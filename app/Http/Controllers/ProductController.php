@@ -94,24 +94,9 @@ class ProductController extends Controller
         }
 
         if(isset($request->related_products)){
-            // related_products
-             $images = $request->related_products;
-             $relatednames = "RelatedProducts_" . time();
-             $uploaded = [];
-    foreach($images as $image)
-    {
-        error_log('for statement fires.');
-        $destinationPath = 'related_products';
-        $result = $request->related_products->storeOnCloudinaryAs($destinationPath, $relatednames);
-        $imagename = $result->getFileName();
-        $extension = $result->getExtension();
-        $names = $imagename . "." . $extension;
-        // $product->related_products = $name
-        array_push($uploaded, $names);     
+              
 
-    }
-
-    $product->related_products = json_encode($names);
+        dd($request->all());
 
         }
 
@@ -127,7 +112,7 @@ class ProductController extends Controller
 
         
 
-        $product->save();
+        // $product->save();
         $response = response([
             "data" => new ProductResource($product), 
             "status" => 'ok',
@@ -139,7 +124,9 @@ class ProductController extends Controller
         // return [
         //     "data" => $product
         // ];
-        return $response;
+         return $response;
+
+        dd($request->all());
     }
 
     /**
