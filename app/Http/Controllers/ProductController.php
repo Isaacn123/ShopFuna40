@@ -95,17 +95,19 @@ class ProductController extends Controller
 
         if(isset($request->related_products)){
             // related_products
-
-             $names = [];
-    foreach($request->file('related_products') as $image)
+             $images = $request->related_products;
+             $relatednames = "RelatedProducts_" . time();
+             $uploaded = [];
+    foreach($images as $image)
     {
+        error_log('for statement fires.');
         $destinationPath = 'related_products';
-        $result = $request->related_products->storeOnCloudinaryAs($destinationPath, $nameF);
+        $result = $request->related_products->storeOnCloudinaryAs($destinationPath, $relatednames);
         $imagename = $result->getFileName();
         $extension = $result->getExtension();
         $names = $imagename . "." . $extension;
         // $product->related_products = $name
-                 
+        array_push($uploaded, $names);     
 
     }
 
