@@ -31,7 +31,7 @@ class StoreProductRequest extends FormRequest
             'category_id' => 'required',
             'companyName' => 'required|max:255',
             'phone' => 'required|max:255',
-            'discount' => 'required|max:2', 
+            'discount' => 'required|max:2',
             'subCategory_id' => 'required',
             'stock' => 'required|max:6',
         ];
