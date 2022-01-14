@@ -124,7 +124,7 @@ class ProductController extends Controller
         // return [
         //     "data" => $product
         // ];
-         return $response;
+        //  return $response;
 
         dd($request->all());
     }
