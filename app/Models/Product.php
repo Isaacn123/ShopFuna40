@@ -35,6 +35,7 @@ class Product extends Model
 
     public function user()
     {
-        return $this->hasMany('App\Models\User');
+     return $this->has('App\Models\User');
+        // return $this->hasMany('user_id');
     }
 }

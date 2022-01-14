@@ -38,7 +38,7 @@ class ProductController extends Controller
 
         //  return ProductCollection::collection(Product::all());
         // $user = User::with('address')->find(Auth::user()->id);
-        return ProductCollection::collection(Product::orderBy('id', 'DESC')->paginate(15));
+        return ProductCollection::collection(Product::with('user')->find(Auth::user()->id)->orderBy('id', 'DESC')->paginate(15))->get();
     }
 
     /**
