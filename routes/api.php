@@ -37,7 +37,43 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::post('auth/login', 'Auth\AuthController@postLogin');
 // Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
+  Route::post('pic', function(Request $request){
 
+    if(isset($request->related_products)){
+        $files = $request->file('related_products');
+
+        //  dd($files);
+        //  $message = "OUT-PUT-FILES :::".$files;
+        //  Log::info($message);
+        //  Log::debug($message);
+
+         foreach($files as $file){
+         $image_name = "relproduct_".md5(rand(1000,10000));
+         $ext = strtolower($file->getClientOriginalExtension());
+         $image_full_name = $image_name. '.'. $ext;
+         $defaultUploadpath = '/moreproducts';
+     
+         $result = cloudinary()->upload($file->getRealPath(),[
+             'folder' => $defaultUploadpath,
+             'discard_original_filename' => true,] );
+
+         $imagename = $result->getFileName();
+         $extension = $result->getExtension();
+         $name = $imagename . "." . $extension;
+         $image[] = $name;
+
+
+         }
+
+     }
+    //  $product->related_products = json_encode($image);
+
+     return[
+         "images" => $image,
+         "message" => "Product successfully"
+     ];
+    
+  }); 
 
 // public Routes 
 Route::get('business/search/{name}', [BusinessController::class, 'search']); 
