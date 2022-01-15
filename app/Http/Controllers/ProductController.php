@@ -121,7 +121,7 @@ class ProductController extends Controller
         $product->related_products = json_encode($image); 
         
 
-        // $product->save();
+        $product->save();
         // dd($request->all());
         $response = response([
             "data" => new ProductResource($product), 
