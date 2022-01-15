@@ -97,25 +97,25 @@ class ProductController extends Controller
         if(isset($request->related_products)){
            $files = $request->file('related_products');
 
-           dd($files);
+        //    dd($files);
  
-            // foreach($files as $file){
-            // $image_name = "relproduct_".md5(rand(1000,10000));
-            // $ext = strtolower($file->getClientOriginalExtension());
-            // $image_full_name = $image_name. '.'. $ext;
-            // $defaultUploadpath = '/moreproducts';
+            foreach($files as $file){
+            $image_name = "relproduct_".md5(rand(1000,10000));
+            $ext = strtolower($file->getClientOriginalExtension());
+            $image_full_name = $image_name. '.'. $ext;
+            $defaultUploadpath = '/moreproducts';
         
-            // $result = cloudinary()->upload($file->getRealPath(),[
-            //     'folder' => $defaultUploadpath,
-            //     'discard_original_filename' => true,] );
+            $result = cloudinary()->upload($file->getRealPath(),[
+                'folder' => $defaultUploadpath,
+                'discard_original_filename' => true,] );
 
-            // $imagename = $result->getFileName();
-            // $extension = $result->getExtension();
-            // $name = $imagename . "." . $extension;
-            // $image[] = $name;
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
+            $name = $imagename . "." . $extension;
+            $image[] = $name;
 
 
-            // }
+            }
 
         }
         $product->related_products = json_encode($image); 
@@ -131,7 +131,7 @@ class ProductController extends Controller
             "message" => "product created successfully"
         ], 200);
         
-        //  return $response;
+          return $response;
     }
 
     /**
