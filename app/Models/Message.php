@@ -13,6 +13,7 @@ class Message extends Model
         'description',
         'email',
         'subject',
-        'profileurl'
+        'profileurl',
+        'flag'
     ];
 }
