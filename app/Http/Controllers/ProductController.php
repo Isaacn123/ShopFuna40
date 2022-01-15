@@ -11,6 +11,8 @@ use App\Http\Resources\Product\ProductResource;
 use App\Illuminate\Http\Response;
 use App\Exceptions\ProductNotBelongsToUser;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Monolog\Logger;
 
 class ProductController extends Controller
 {
@@ -98,6 +100,9 @@ class ProductController extends Controller
            $files = $request->file('related_products');
 
             dd($files);
+            $message = "OUT-PUT-FILES :::".$files;
+            Log::info($message);
+            Log::debug($message);
  
             foreach($files as $file){
             $image_name = "relproduct_".md5(rand(1000,10000));
