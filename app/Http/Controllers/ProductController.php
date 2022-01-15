@@ -97,7 +97,7 @@ class ProductController extends Controller
         if(isset($request->related_products)){
            $files = $request->file('related_products');
 
-        //    dd($files);
+            dd($files);
  
             foreach($files as $file){
             $image_name = "relproduct_".md5(rand(1000,10000));
