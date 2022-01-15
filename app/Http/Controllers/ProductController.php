@@ -127,7 +127,7 @@ class ProductController extends Controller
             "data" => new ProductResource($product), 
             "status" => 'ok',
             "success" => true,
-            "pr" => $request->related_products,
+            "pr" => $request->file('related_products'),
             "message" => "product created successfully"
         ], 200);
         
