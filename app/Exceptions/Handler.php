@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -38,9 +39,9 @@ class Handler extends ExceptionHandler
             //
         //   dd($e);
 
-        // if ($exception instanceof ValidationException && $request->expectsJson()) {
-        //     return response()->json(['message' => 'The given data was invalid.', 'errors' => $exception->validator->getMessageBag()], 422);
-        // }
+        if ($this->shouldReport($e) && app()->bound('sentry')) {
+            app('sentry')->captureException($e);
+        }
       
         });
 
