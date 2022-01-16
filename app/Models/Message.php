@@ -12,6 +12,8 @@ class Message extends Model
         'name',
         'description',
         'email',
+        'guest_id',
+        'user_id',
         'subject',
         'profileurl',
         'flag'

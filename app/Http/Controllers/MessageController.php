@@ -43,6 +43,8 @@ class MessageController extends Controller
         $message->email = $request-> email;
         $message->subject = $request->subject;
         $message->flag = $request-> flag;
+        $message->guest_id = $request->guest_id;
+        $message->user_id = $request->user_id;
         $message->description = $request-> description;
         $message->profileurl = $request-> profileurl;
 
