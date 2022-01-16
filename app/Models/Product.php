@@ -12,7 +12,7 @@ class Product extends Model
      protected $appends = ['imagePath'];
      protected $fillable = [
           'name','stock','price', 'description','featured_image','category_id','discount',
-          'subCategory_id', 'slug', 'favourites','companyName'
+          'subCategory_id', 'slug', 'favourites','companyName','phone'
      ];
 
 
