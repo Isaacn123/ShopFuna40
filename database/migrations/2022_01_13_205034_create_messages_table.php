@@ -20,6 +20,8 @@ class CreateMessagesTable extends Migration
             $table->string('email');
             $table->string('subject');
             $table->string('flag');
+            $table->integer('guest_id');
+            $table->integer('user_id');
             $table->string('profileurl')->nullable();
             $table->timestamps();
         });
