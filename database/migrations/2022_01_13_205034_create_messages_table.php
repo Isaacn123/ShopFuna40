@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->string('email');
             $table->string('subject');
             $table->string('flag');
-            $table->integer('guest_id')->nullable();
+            $table->string('guest_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->string('profileurl')->nullable();
             $table->timestamps();
