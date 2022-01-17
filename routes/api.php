@@ -17,6 +17,7 @@ use App\Http\Controllers\ProController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BusinessAllCategories;
 use App\Http\Controllers\BusinessAllSubCategories;
+use App\Http\Controllers\VideoadsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('auth/login', 'Auth\AuthController@getLogin');
-// Route::post('auth/login', 'Auth\AuthController@postLogin');
-// Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
   Route::post('pic', function(Request $request){
 
@@ -115,7 +113,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 // Route::get('/business',[BusinessController::class, 'index']); 
 
 // Route::post('/business', [BusinessController::class, 'store']); 
-  
+    Route::apiResource('/videoadd', VideoadsController::class);
     Route::apiResource('/jobs', JobController::class);
     Route::apiResource('/cvs', CvController::class);
     Route::apiResource('/select', ProController::class);
