@@ -48,6 +48,17 @@ class VideoadsController extends Controller
         // $videoads ->name = $request->name;
         // $videoads ->username = $request->username;
         // $videoads ->user_id = Auth::id();
+        echo ini_get("memory_limit")."\n";
+        // ini_set("memory_limit","30M");
+        echo ini_get("memory_limit")."\n";
+        
+        echo ini_get("post_max_size")."\n";
+        ini_set("post_max_size","20M");
+        echo ini_get("post_max_size")."\n";
+        
+        echo ini_get("upload_max_filesize")."\n";
+        ini_set("upload_max_filesize","19M");
+        echo ini_get("upload_max_filesize")."\n";
 
         $nameF = "Videoads_" . time();
         if(isset($request->videoadd)){
@@ -63,16 +74,16 @@ class VideoadsController extends Controller
 
         }
  echo ini_get("memory_limit")."\n";
-// // ini_set("memory_limit","30M");
-// echo ini_get("memory_limit")."\n";
+// ini_set("memory_limit","30M");
+echo ini_get("memory_limit")."\n";
 
 echo ini_get("post_max_size")."\n";
 ini_set("post_max_size","20M");
 echo ini_get("post_max_size")."\n";
 
-// echo ini_get("upload_max_filesize")."\n";
-// ini_set("upload_max_filesize","19M");
-// echo ini_get("upload_max_filesize")."\n";
+echo ini_get("upload_max_filesize")."\n";
+ini_set("upload_max_filesize","19M");
+echo ini_get("upload_max_filesize")."\n";
 
         // $videoads->save();
 
