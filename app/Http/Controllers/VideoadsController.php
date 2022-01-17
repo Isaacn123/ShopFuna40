@@ -51,14 +51,14 @@ class VideoadsController extends Controller
 
         $nameF = "Videoads_" . time();
         if(isset($request->videoadd)){
-            // $result = $request->videoadd->storeOnCloudinaryAs('video_ads', $nameF);
-            // $imagename = $result->getFileName();
-            // $extension = $result->getExtension();
+            $result = $request->videoadd->storeOnCloudinaryAs('video_ads', $nameF);
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
     
-            // $name = $imagename . "." . $extension;
-            // $path = $result->getSecurePath();
+            $name = $imagename . "." . $extension;
+            $path = $result->getSecurePath();
             // $videoads->videoadd = $name;
-            // $imageID = $result->getPublicId();
+            $imageID = $result->getPublicId();
 
 
         }
