@@ -23,6 +23,7 @@ class VideoadsController extends Controller
     public function index()
     {
         //
+        return Videoads:: orderBy('id', 'desc')->paginate(20);
     }
 
     /**
