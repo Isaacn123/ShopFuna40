@@ -25,9 +25,9 @@ class StoreVideoadsRequest extends FormRequest
     {
         return [
             //
-           'username' => 'required',
-            'name' => 'required',
-            'videoadd' => 'required|mimes:mp4,png'
+           'username' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'videoadd' => 'required'
         ];
     }
 }

@@ -44,48 +44,25 @@ class VideoadsController extends Controller
     public function store(StoreVideoadsRequest $request)
     {
         //
-           $videoads = new Videoads();
-        // $videoads ->name = $request->name;
-        // $videoads ->username = $request->username;
-        // $videoads ->user_id = Auth::id();
-        echo ini_get("memory_limit")."\n";
-        // ini_set("memory_limit","30M");
-        echo ini_get("memory_limit")."\n";
+        $videoads = new Videoads();
+        $videoads ->name = $request->name;
+        $videoads ->username = $request->username;
+        $videoads ->user_id = Auth::id();
+        $videoads ->videoadd = $request->videoadd;
+        // echo ini_get("memory_limit")."\n";
+        // // ini_set("memory_limit","30M");
+        // echo ini_get("memory_limit")."\n";
         
-        echo ini_get("post_max_size")."\n";
-        ini_set("post_max_size","20M");
-        echo ini_get("post_max_size")."\n";
+        // echo ini_get("post_max_size")."\n";
+        // ini_set("post_max_size","20M");
+        // echo ini_get("post_max_size")."\n";
         
-        echo ini_get("upload_max_filesize")."\n";
-        ini_set("upload_max_filesize","19M");
-        echo ini_get("upload_max_filesize")."\n";
-
-        $nameF = "Videoads_" . time();
-        if(isset($request->videoadd)){
-            $result = $request->videoadd->storeOnCloudinaryAs('video_ads', $nameF);
-            $imagename = $result->getFileName();
-            $extension = $result->getExtension();
-    
-            $name = $imagename . "." . $extension;
-            $path = $result->getSecurePath();
-            // $videoads->videoadd = $name;
-            $imageID = $result->getPublicId();
+        // echo ini_get("upload_max_filesize")."\n";
+        // ini_set("upload_max_filesize","19M");
+        // echo ini_get("upload_max_filesize")."\n";
 
 
-        }
- echo ini_get("memory_limit")."\n";
-// ini_set("memory_limit","30M");
-echo ini_get("memory_limit")."\n";
-
-echo ini_get("post_max_size")."\n";
-ini_set("post_max_size","20M");
-echo ini_get("post_max_size")."\n";
-
-echo ini_get("upload_max_filesize")."\n";
-ini_set("upload_max_filesize","19M");
-echo ini_get("upload_max_filesize")."\n";
-
-        // $videoads->save();
+        $videoads->save();
 
         return [
             "data" => $videoads,
