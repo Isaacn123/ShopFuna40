@@ -8,6 +8,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Address;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 
 class UserAuthController extends Controller
 {
@@ -33,6 +35,8 @@ class UserAuthController extends Controller
             'code' => $fields['code'],
             'phone' => $fields['phone'],
         ]);
+
+        Mail::to($user->email)->send(new WelcomeMail($user));
 
         $token = $user->createToken('myuserToken')->plainTextToken;
         $response = Response([
@@ -133,51 +137,9 @@ class UserAuthController extends Controller
         ]);
 
       $user = User::find(Auth::user()->id);
-      // if(isset($request->image)){
-      //   if($user->image != "noimage.jpg")
-      //   {
-      //       if(\File::exists(public_path('/images/user/'. $user->image))){
-      //           \File::delete(public_path('/images/user/'. $user->image));
-      //       }
-      //   }
-
-      //   $img = $request->image;
-      //    // Methods we can use on $request
-      //    // 1 guessExtension() = $test = $request->file($img)->guessExtension()
-      //    // 2 getMimeType() = $test = $request->file($img)->getMimeType()
-      //    // 3 store() = $test = $request->file($img)->store
-      //    // 4 asStores() = $test = $request->file($img)
-      //    // 5 storePublicaly() = $test = $request->file($img)->store
-      //    // 6 move() = $test = $request->file($img)->move
-      //    // 7 getClientOriginalName() = $test = $request->file($img)->getClientOriginal
-      //   // 8 getClientExtension() = $test = $request->file($img)
-      //   //  $test = $request->file('image')->getClientOriginalName();
-
-      //   //  $name = "User_" . time() . '.' .$img->extension();
-      //   //  $file = public_path('/images/user/');
-      //   //  $success = $img->move($file, $name);
-      //   //  $success = file_put_contents($file, $data1);
-      //   // dd($test)
-
-      //   // $img = str_replace('data:image/png;base64,', '', $img);
-       
-
-      //   $img = str_replace(' ', '+', $img);
-       
-      //   $data1 = base64_decode($img);
-      //   $name = "User_" . time() . ".png";
-      //   $file = public_path('/images/user/') . $name;
-      //   $success = file_put_contents($file, $data1);
-      //   $user->image = $name;
 
 
-      // }
-      
- 
- /// Uploading image to Cloudinary server 
-         // $response = cloudinary()->upload($request->image->getRealPath())->getSecurePath();
-     
-        // $result = $request->image->storeOnCloudinary();
+
         
         $nameF = "User_" . time();
 
@@ -233,6 +195,20 @@ class UserAuthController extends Controller
      ], 200);
 
      return $response;
+   }
+
+
+   /// get all products that belong to a perticular User ID
+
+   public  function  products(){
+    $user = User::with('products')->find(Auth::user()->id);
+     $products = new Response([
+      "data" => $user,
+      "message" => "Show User Products",
+      "success" => true,
+     ]);
+    return  $products;
+
    }
 
 

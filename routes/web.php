@@ -7,6 +7,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\subCategoryController;
 use App\Http\Controllers\BussinessCategoryController;
 use App\Http\Controllers\BussinessSubCategoryController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +35,11 @@ Route::resource('businesscategory', BussinessCategoryController::class);
 Route::resource('business_sub-category',BussinessSubCategoryController::class);
 Route::resource('sub-category', subCategoryController::class);
 Route::resource('dash-b', DashboardController::class);
+
+Route::get('emails', function(){
+    Mail::to('nsambai72@gmail.com')->send(new WelcomeMail());
+   return new WelcomeMail();
+});
 
 // Auth::routes();
 
