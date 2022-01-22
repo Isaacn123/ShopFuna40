@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Banner extends Model
 {
     use HasFactory;
+    protected $appends = ['imagePath'];
     protected $fillable = [
         'name',
         'category',
@@ -15,4 +16,13 @@ class Banner extends Model
         'company',
         'banner'
     ];
+
+
+
+    public function getImagePathAttribute()
+    {
+        // return url('images/business') . '/';
+        return url('https://res.cloudinary.com/ivhfizons/image/upload/v1639074703'). '/';
+    
+    }
 }
