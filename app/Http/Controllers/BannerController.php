@@ -64,11 +64,11 @@ class BannerController extends Controller
         
         $banner->save();
 
-        $response = new Response([
+        $response =[
             "data" => $banner,
             "statusCode" => 200,
             "message" => "Banner created successfully"
-        ]);
+        ];
 
         return $response;
     }
