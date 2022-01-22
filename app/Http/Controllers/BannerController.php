@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreBannerRequest;
+use App\Illuminate\Http\Response;
 
 class BannerController extends Controller
 {
