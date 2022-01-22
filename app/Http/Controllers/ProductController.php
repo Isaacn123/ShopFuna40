@@ -18,7 +18,7 @@ class ProductController extends Controller
 {
    
     public function __construct(){
-       $this->middleware('auth:sanctum')->except('index','show');
+       $this->middleware('auth:sanctum')->except('index','show','productcompany');
      // $this->middleware('auth:api')->except('index','show');
 //     // $this->middleware('auth', ['except' => ['index', 'show']]);
 
@@ -46,6 +46,30 @@ class ProductController extends Controller
 
      return ProductCollection::collection(Product::orderBy('id', 'DESC')->paginate(15));
     }
+
+
+      /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+      public function productcompany(){
+     $collection = ProductCollection::collection(Product::all());
+
+       $filtered = $collection->pluck('companyName');
+
+     return  $filtered->all();
+
+    // $firstname = $collection;
+
+    //  $filtered = $firstname->keys(); //array_keys($firstname->toArray);
+
+    // return $filtered;
+    // return ProductCollection::collection(Product::all());
+
+      }
+
 
     /**
      * Show the form for creating a new resource.

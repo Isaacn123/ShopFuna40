@@ -88,6 +88,8 @@ Route::get('business/{category}', [BusinessController::class, 'business']);
 Route::post('apply', [JobApplicationController::class, 'store']); 
 Route::apiResource('messages',MessageController::class); 
 
+Route::get('products/all',[ProductController::class, 'productcompany']); 
+
 // protected Routes
 Route::group(['middleware' => 'auth:sanctum'], function () {
 // Route::group(['middleware' => 'auth:api'], function () {
