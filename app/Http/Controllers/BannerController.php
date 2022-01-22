@@ -48,6 +48,7 @@ class BannerController extends Controller
         $banner->name = $request->name;
         $banner->category = $request->category;
         $banner->company = $request->company;
+        $banner->user_id = (int)$request->user_id;
         $nameF = "Banner_" . time();
         if(isset($request->banner)) {
             $result = $request->banner->storeOnCloudinaryAs('banner', $nameF);
