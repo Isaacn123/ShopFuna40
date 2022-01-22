@@ -18,6 +18,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\BusinessAllCategories;
 use App\Http\Controllers\BusinessAllSubCategories;
 use App\Http\Controllers\VideoadsController;
+use App\Http\Controllers\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +88,7 @@ Route::get('sub_category/{id}', [PostSubCategory::class, 'index']);
 Route::get('business/{category}', [BusinessController::class, 'business']); 
 Route::post('apply', [JobApplicationController::class, 'store']); 
 Route::apiResource('messages',MessageController::class); 
+Route::apiResource('banner',BannerController::class); 
 
 Route::get('products/all',[ProductController::class, 'productcompany']); 
 
