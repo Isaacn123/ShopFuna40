@@ -109,6 +109,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('cvs/updatecv/{id}', [CvController::class, 'updatecv']);
     Route::get('all_address', [UserAuthController::class,'all_address']); 
     Route::get('/userproduct',[UserAuthController::class, 'products']);
+    Route::delete('banner/delete/{id}', [BannerController::class, 'delete']);
     
    
 }); 

@@ -119,4 +119,21 @@ class BannerController extends Controller
     {
         //
     }
+
+
+
+
+    public function delete($id)
+    {
+        //
+        $banner = Banner::find($id);
+        $banner->delete();
+        $response = [
+            'message' => 'banner successfully Deleted',
+            'success' => true,
+
+        ];
+
+        return $response;
+    }
 }
