@@ -63,6 +63,8 @@ class CvController extends Controller
         $cvapplication ->location = $request->location;
         $cvapplication ->zipcode = $request-> zipcode;
 
+        $cvapplication->pdf_file = $request->pdf_file;
+
         $nameF = "Cv_" . $request->firstName . time();
 
         //   if(isset($request->pdf_file)){
