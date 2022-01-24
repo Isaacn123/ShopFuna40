@@ -18,6 +18,7 @@ class CreateBannersTable extends Migration
             $table->string('name')->nullable();
             $table->string('category')->nullable();
             $table->integer('user_id');
+            $table->integer('status')->default(0);
             $table->string('company');
             $table->string('banner');
             $table->timestamps();

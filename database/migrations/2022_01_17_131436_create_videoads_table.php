@@ -18,6 +18,7 @@ class CreateVideoadsTable extends Migration
             $table->integer('user_id');
             $table->string('username');
             $table->string('name');
+            $table->integer('status')->default(0);
             $table->string('videoadd');
             $table->timestamps();
         });
