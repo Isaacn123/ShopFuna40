@@ -26,7 +26,7 @@ class StoreVideoadsRequest extends FormRequest
         return [
             //
            'username' => 'required|string|max:255',
-            'name' => 'required|string|max:255',
+            'name'    => 'required|max:255|unique:videoads',
             'videoadd' => 'required'
         ];
     }

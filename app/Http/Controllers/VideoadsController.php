@@ -120,4 +120,20 @@ class VideoadsController extends Controller
     {
         //
     }
+
+
+
+    public function delete($id)
+    {
+        //
+        $cvs = Videoads::find($id);
+        $cvs->delete();
+        $response = [
+            'message' => 'product successfully Deleted',
+            'success' => true,
+
+        ];
+
+        return $response;
+    }
 }
