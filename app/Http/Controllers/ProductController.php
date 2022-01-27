@@ -198,12 +198,13 @@ class ProductController extends Controller
         //
         // $request['detail'] = $request->description;
         // unset($request['description']);
-
+        
+        $product = new Product();
 
         $this->productCheckUser($product);
         //  $products = $product->update($request->all());
 
-         $product = new Product();
+         
          $product ->name = $request->name;
         $product ->user_id = intval($request->user_id);
         $product ->description = $request->description;
