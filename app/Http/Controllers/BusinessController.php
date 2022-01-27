@@ -267,7 +267,7 @@ class BusinessController extends Controller
         $name = $imagename . "." . $extension;
         $company->featured_image = $name;
        }else{
-        $company->featured_image = $name; 
+        $company->featured_image = $request->featured_image; 
        }
     //    $company->save();
        
