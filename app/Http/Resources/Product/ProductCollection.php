@@ -16,6 +16,7 @@ class ProductCollection extends JsonResource
     {
         // return parent::toArray($request);
         return[
+            'id' => $this->id,
             'name' =>$this->name,
             'price' =>$this->price,
             'user_id' =>$this->user_id,
