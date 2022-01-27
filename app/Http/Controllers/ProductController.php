@@ -201,7 +201,66 @@ class ProductController extends Controller
 
 
         $this->productCheckUser($product);
-         $products = $product->update($request->all());
+        //  $products = $product->update($request->all());
+
+         $product = new Product();
+         $product ->name = $request->name;
+        $product ->user_id = $user_id;
+        $product ->description = $request->description;
+        $product ->price = $request->price;
+        $product ->discount = $request->discount;
+        $product ->companyName = $request->companyName;
+        $product ->category_id = $request->category_id;
+        $product ->subCategory_id = $request->subCategory_id;
+        $product ->stock = $request->stock;
+        $product ->phone = $request->phone;
+        $product ->slug = $request-> slug;
+
+        $nameF = "Product_" . time();
+        if(isset($request->featured_image)){
+            $result = $request->featured_image->storeOnCloudinaryAs('products', $nameF);
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
+    
+            $name = $imagename . "." . $extension;
+            $path = $result->getSecurePath();
+            $product->featured_image = $name;
+            // $imageID = $result->getPublicId();
+
+
+        }else{
+            $product->featured_image = $request->featured_image;  
+        }
+
+        $image = [];
+        if(isset($request->related_products)){
+           $files = $request->file('related_products');
+
+            foreach($files as $file){
+            $image_name = "relproduct_".md5(rand(1000,10000));
+            $ext = strtolower($file->getClientOriginalExtension());
+            $image_full_name = $image_name. '.'. $ext;
+            $defaultUploadpath = '/moreproducts';
+        
+            $result = cloudinary()->upload($file->getRealPath(),[
+                'folder' => $defaultUploadpath,
+                'discard_original_filename' => true,] );
+            $imagename = $result->getFileName();
+            $extension = $result->getExtension();
+            $name = $imagename . "." . $extension;
+            $image[] = $name;
+
+
+            }
+            $product->related_products = json_encode($image); 
+        }else{
+            $product->related_products = $request->related_products;
+        }
+
+
+          $product->save();
+
+
          $response = response([
              'message' => 'product successfully updated',
              'data' => $products,
