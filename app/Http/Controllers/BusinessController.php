@@ -112,20 +112,20 @@ class BusinessController extends Controller
           $businessInfo->image = $request->image;
           
 
-        // $nameF = "BusinessLogo_" . time();
-        // if($request->hasFile('image'))
-        // {
-        //      $image = $request->file('image');
+        $nameF = "BusinessLogo_" . time();
+        if($request->hasFile('image'))
+        {
+             $image = $request->file('image');
 
-        // $result = $request->image->storeOnCloudinaryAs('business', $nameF);
-        // $imagename = $result->getFileName();
-        // $extension = $result->getExtension();
+        $result = $request->image->storeOnCloudinaryAs('business', $nameF);
+        $imagename = $result->getFileName();
+        $extension = $result->getExtension();
 
-        // $name = $imagename . "." . $extension;
-        // $path = $result->getSecurePath();
-        // $imageID = $result->getPublicId(); 
-        // $businessInfo->image = $name;
-        // }
+        $name = $imagename . "." . $extension;
+        $path = $result->getSecurePath();
+        $imageID = $result->getPublicId(); 
+        $businessInfo->image = $name;
+        }
 
         $nameF = "Featured_" . time();
         if($request->hasFile('featured_image'))
@@ -229,24 +229,45 @@ class BusinessController extends Controller
      
      if($request->hasFile('image'))
      {
-         $image = $request->file('image');
-         $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
-         $destinationPath = public_path('/images/business/logo');
-         $image->move($destinationPath, $name);
+        //  $image = $request->file('image');
+        //  $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
+        //  $destinationPath = public_path('/images/business/logo');
+        //  $image->move($destinationPath, $name);
+
+        $nameF = "BusinessLogo_" . time();
+        if($request->hasFile('image'))
+        {
+        $image = $request->file('image');
+
+        $result = $request->image->storeOnCloudinaryAs('business', $nameF);
+        $imagename = $result->getFileName();
+        $extension = $result->getExtension();
+
+        $name = $imagename . "." . $extension;
+     
+        }
          $company->image = $name;
+     }else{
+        $company->image = $request->image; 
      }
 
 
      // $businessInfo ->featured_business = $request-> featured_business;
 
-
+        $nameF = "Featured_" . time();
        if($request->hasFile('featured_image'))
        {
-           $image = $request->file('featured_image');
-           $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
-           $destinationPath = public_path('/images/business/featuredImage ');
-           $image->move($destinationPath, $name);
-           $businessInfo->featured_image = $name;
+        //    $image = $request->file('featured_image');
+        //    $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
+        //    $destinationPath = public_path('/images/business/featuredImage ');
+        //    $image->move($destinationPath, $name);
+        $result    = $request->featured_image->storeOnCloudinaryAs('featured', $nameF);
+        $imagename = $result->getFileName();
+        $extension = $result->getExtension();
+        $name = $imagename . "." . $extension;
+        $company->featured_image = $name;
+       }else{
+        $company->featured_image = $name; 
        }
     //    $company->save();
        
