@@ -207,8 +207,8 @@ class ProductController extends Controller
          $product ->name = $request->name;
         $product ->user_id = intval($request->user_id);
         $product ->description = $request->description;
-        $product ->price = $request->price;
-        $product ->discount = $request->discount;
+        $product ->price = intval($request->price);
+        $product ->discount = intval($request->discount);
         $product ->companyName = $request->companyName;
         $product ->category_id = $request->category_id;
         $product ->subCategory_id = $request->subCategory_id;
