@@ -216,7 +216,7 @@ class ProductController extends Controller
         $product ->companyName = $request->companyName;
         $product ->category_id = $request->category_id;
         $product ->subCategory_id = $request->subCategory_id;
-        $product ->stock = $request->stock;
+        $product ->stock = intval($request->stock);
         $product ->phone = $request->phone;
         $product ->slug = $request-> slug;
         $product->related_products = $request->related_products; 
