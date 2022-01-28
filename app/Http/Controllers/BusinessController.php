@@ -229,7 +229,7 @@ class BusinessController extends Controller
             if($request->publicIdLogo != null){
                 if($request->publicIdLogo != "business/noLogo.png")
                 {
-                 cloudinary()->destroy($request->public_id);
+                 cloudinary()->destroy($request->publicIdLogo);
                 }
             }
           
