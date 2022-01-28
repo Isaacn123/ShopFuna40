@@ -227,6 +227,7 @@ class ProductController extends Controller
             if($request->publicIdbanner != null){
                 if($request->publicIdbanner != "featured/no_featuredImage.jpg")
                 {
+                    // publicIdbanner
                  cloudinary()->destroy($request->publicIdbanner);
                 }
             }
@@ -275,7 +276,7 @@ class ProductController extends Controller
         // }
 
 
-          $product->update();
+          $product->update($request->all());
 
 
          $response = response([
