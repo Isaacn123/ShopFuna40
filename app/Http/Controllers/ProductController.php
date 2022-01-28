@@ -200,7 +200,7 @@ class ProductController extends Controller
         // unset($request['description']);
 
         $product = Product::find($id);
-        
+
         // $this->productCheckUser($product);
     
 
@@ -276,7 +276,7 @@ class ProductController extends Controller
         // }
 
 
-          $product->update($request->all());
+          $product->update();
 
 
          $response = response([
