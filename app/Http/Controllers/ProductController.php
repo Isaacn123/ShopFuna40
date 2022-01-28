@@ -222,17 +222,17 @@ class ProductController extends Controller
         $product->related_products = $request->related_products; 
         $product->featured_image = $request->featured_image; 
 
-        // if(isset($request->featured_image))
-        // {
-        //     if($request->publicIdbanner != null){
-        //         if($request->publicIdbanner != "featured/no_featuredImage.jpg")
-        //         {
-        //             // publicIdbanner
-        //          cloudinary()->destroy($request->publicIdbanner);
-        //         }
-        //     }
+        if(isset($request->featured_image))
+        {
+            if($request->publicIdbanner != null){
+                if($request->publicIdbanner != "featured/no_featuredImage.jpg")
+                {
+                    // publicIdbanner
+                 cloudinary()->destroy($request->publicIdbanner);
+                }
+            }
           
-        // };
+        };
 
         // $nameF = "Product_" . time();
         // if(isset($request->featured_image)){
