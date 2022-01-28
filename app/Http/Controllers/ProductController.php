@@ -216,47 +216,60 @@ class ProductController extends Controller
         $product ->stock = $request->stock;
         $product ->phone = $request->phone;
         $product ->slug = $request-> slug;
+        $product->related_products = $request->related_products; 
+        $product->featured_image = $request->featured_image; 
 
-        $nameF = "Product_" . time();
-        if(isset($request->featured_image)){
-            $result = $request->featured_image->storeOnCloudinaryAs('products', $nameF);
-            $imagename = $result->getFileName();
-            $extension = $result->getExtension();
-    
-            $name = $imagename . "." . $extension;
-            $path = $result->getSecurePath();
-            $product->featured_image = $name;
-            // $imageID = $result->getPublicId();
-
-
-        }else{
-            $product->featured_image = $request->featured_image;  
-        }
-
-        $image = [];
-        if(isset($request->related_products)){
-           $files = $request->file('related_products');
-
-            foreach($files as $file){
-            $image_name = "relproduct_".md5(rand(1000,10000));
-            $ext = strtolower($file->getClientOriginalExtension());
-            $image_full_name = $image_name. '.'. $ext;
-            $defaultUploadpath = '/moreproducts';
-        
-            $result = cloudinary()->upload($file->getRealPath(),[
-                'folder' => $defaultUploadpath,
-                'discard_original_filename' => true,] );
-            $imagename = $result->getFileName();
-            $extension = $result->getExtension();
-            $name = $imagename . "." . $extension;
-            $image[] = $name;
-
-
+        if(isset($request->featured_image))
+        {
+            if($request->publicIdbanner != null){
+                if($request->publicIdbanner != "featured/no_featuredImage.jpg")
+                {
+                 cloudinary()->destroy($request->publicIdbanner);
+                }
             }
-            $product->related_products = json_encode($image); 
-        }else{
-            $product->related_products = $request->related_products;
-        }
+          
+        };
+
+        // $nameF = "Product_" . time();
+        // if(isset($request->featured_image)){
+        //     $result = $request->featured_image->storeOnCloudinaryAs('products', $nameF);
+        //     $imagename = $result->getFileName();
+        //     $extension = $result->getExtension();
+    
+        //     $name = $imagename . "." . $extension;
+        //     $path = $result->getSecurePath();
+        //     $product->featured_image = $name;
+        //     // $imageID = $result->getPublicId();
+
+
+        // }else{
+        //     $product->featured_image = $request->featured_image;  
+        // }
+
+        // $image = [];
+        // if(isset($request->related_products)){
+        //    $files = $request->file('related_products');
+
+        //     foreach($files as $file){
+        //     $image_name = "relproduct_".md5(rand(1000,10000));
+        //     $ext = strtolower($file->getClientOriginalExtension());
+        //     $image_full_name = $image_name. '.'. $ext;
+        //     $defaultUploadpath = '/moreproducts';
+        
+        //     $result = cloudinary()->upload($file->getRealPath(),[
+        //         'folder' => $defaultUploadpath,
+        //         'discard_original_filename' => true,] );
+        //     $imagename = $result->getFileName();
+        //     $extension = $result->getExtension();
+        //     $name = $imagename . "." . $extension;
+        //     $image[] = $name;
+
+
+        //     }
+        //     $product->related_products = json_encode($image); 
+        // }else{
+        //     $product->related_products = $request->related_products;
+        // }
 
 
           $product->save();
