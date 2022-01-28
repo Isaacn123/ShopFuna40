@@ -199,10 +199,10 @@ class ProductController extends Controller
         // $request['detail'] = $request->description;
         // unset($request['description']);
 
-
-        // $this->productCheckUser($product);
+        $product = Product::find($id);
         
-         $product = new Product();
+        // $this->productCheckUser($product);
+    
 
         
         //  $products = $product->update($request->all());
