@@ -275,7 +275,7 @@ class ProductController extends Controller
         // }
 
 
-          $product->update();
+          $product->update($request->all());
 
 
          $response = response([
