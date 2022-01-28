@@ -193,14 +193,14 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProductRequest $request,Product $product, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         //
         // $request['detail'] = $request->description;
         // unset($request['description']);
 
 
-        $this->productCheckUser($product);
+        // $this->productCheckUser($product);
         
         // $product = new Product();
 
@@ -275,7 +275,7 @@ class ProductController extends Controller
         // }
 
 
-          $product->update($request->all());
+          $product->update();
 
 
          $response = response([
