@@ -202,7 +202,7 @@ class ProductController extends Controller
 
         // $this->productCheckUser($product);
         
-        // $product = new Product();
+         $product = new Product();
 
         
         //  $products = $product->update($request->all());
