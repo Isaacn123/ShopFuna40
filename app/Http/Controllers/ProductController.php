@@ -201,7 +201,7 @@ class ProductController extends Controller
         
         $product = new Product();
 
-        $this->productCheckUser($product);
+        // $this->productCheckUser($product);
         //  $products = $product->update($request->all());
 
          
