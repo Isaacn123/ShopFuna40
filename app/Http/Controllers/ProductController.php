@@ -220,7 +220,7 @@ class ProductController extends Controller
         $product ->phone = $request->phone;
         $product ->slug = $request-> slug;
         $product->related_products = $request->related_products; 
-        $product->featured_image = "request->featured_image"; 
+        $product->featured_image = $request->featured_image; 
 
         // if(isset($request->featured_image))
         // {
