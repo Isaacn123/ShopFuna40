@@ -272,7 +272,7 @@ class ProductController extends Controller
         // }
 
 
-          $product->upload();
+          $product->update();
 
 
          $response = response([
