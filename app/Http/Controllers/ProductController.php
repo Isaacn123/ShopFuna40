@@ -201,7 +201,7 @@ class ProductController extends Controller
         
         $product = new Product();
 
-        // $this->productCheckUser($product);
+        $this->productCheckUser($product);
         //  $products = $product->update($request->all());
 
          
@@ -277,7 +277,7 @@ class ProductController extends Controller
 
          $response = response([
              'message' => 'product successfully updated',
-             'data' => $products,
+             'data' => $product,
              'success' => true,
 
          ], 200);
