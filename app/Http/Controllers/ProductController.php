@@ -272,7 +272,7 @@ class ProductController extends Controller
         // }
 
 
-          $product->save();
+          $product->upload();
 
 
          $response = response([
