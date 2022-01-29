@@ -139,11 +139,11 @@ class UserAuthController extends Controller
       $user = User::find(Auth::user()->id);
 
 
-
+      $user->image = $request->image;
         
         // $nameF = "User_" . time();
 
-        if(isset($request->image)){
+        // if(isset($request->image)){
         // if($user->image != "noimage.jpg")
         // {
         //     if(file_exists($user->image)){
@@ -164,17 +164,14 @@ class UserAuthController extends Controller
         // $path = $result->getSecurePath();
         // $user->image = $name;
         // $imageID = $result->getPublicId();
-        $user->image = $request->image;
-      }
+        // $user->image = $request->image;
+      // }
 
        $user->save();
 
       $response = Response([
         'message' => 'Editing profile has been successfully updated',
         'data' => $user,
-         "file" => $path,
-         "name" => $name,
-         "id" => $imageID,
         
         "success" => true,
       ], 200);
