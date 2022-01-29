@@ -102,7 +102,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('/business/{id}',[BusinessController::class, 'destroy']); 
     Route::post('logout', [UserAuthController::class, 'logout']);
     Route::post('edit_profile', [UserAuthController::class, 'profile_edit']); // done
-    Route::post('profile_edit_image', [UserAuthController::class, 'profile_edit_image']); 
+    Route::put('profile_edit_image', [UserAuthController::class, 'profile_edit_image']); 
     Route::get('/profile',[UserAuthController::class, 'profile']); // done
     Route::post('add_address', [UserAuthController::class, 'add_address']); 
     Route::delete('cvs/delete/{id}', [CvController::class, 'delete']);
