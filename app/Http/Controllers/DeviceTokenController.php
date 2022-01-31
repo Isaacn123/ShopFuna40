@@ -120,7 +120,7 @@ class DeviceTokenController extends Controller
     
             $fields = array
                     (
-                        'to' => implode($firebaseToken), // "registration_ids" => $firebaseToken, ///'to' => implode($firebaseToken),//$token,
+                        'registration_ids' => $firebaseToken, // "registration_ids" => $firebaseToken, ///'to' => implode($firebaseToken),//$token,
                         'notification'  => $msg,
                         'time_to_live' => 3600,
                     );
@@ -140,7 +140,7 @@ class DeviceTokenController extends Controller
             curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
             $result = curl_exec($ch );
             // dd($result);
-            
+            dd($firebaseToken);
             print($result);
             curl_close( $ch );
         }
