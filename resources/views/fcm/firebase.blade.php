@@ -31,6 +31,7 @@
 @section('scripts')
 
 <script type="text/javascript">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
   // Import the functions you need from the SDKs you need
 //   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
 //   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-analytics.js";
