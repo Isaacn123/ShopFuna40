@@ -139,6 +139,9 @@ class DeviceTokenController extends Controller
             curl_setopt( $ch,CURLOPT_SSL_VERIFYPEER, false );
             curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
             $result = curl_exec($ch );
+            if (curl_errno($ch)) {
+                echo 'Error:' . curl_error($ch);
+            }
             // dd($result);
             dd($firebaseToken);
             print($result);
