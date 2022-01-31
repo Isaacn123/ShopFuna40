@@ -121,7 +121,7 @@ class DeviceTokenController extends Controller
     
             $fields = array
                     (
-                        'to' => $firebaseToken, // "registration_ids" => $firebaseToken, ///'to' => implode($firebaseToken),//$token,
+                        'to' => implode($firebaseToken), // "registration_ids" => $firebaseToken, ///'to' => implode($firebaseToken),//$token,
                         'notification'  => $msg,
                     );
     
