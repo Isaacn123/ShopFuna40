@@ -97,7 +97,7 @@ class UserAuthController extends Controller
             'token' => $token,
         ]);
 
-        $this->sendThanksNotice();
+        $this->sendNotification();
         return $response;
        
       }
@@ -263,7 +263,7 @@ class UserAuthController extends Controller
    }
 
 
-   public function sendThanksNotice(){ 
+   public function sendNotification(){ 
              
     $firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();
 
@@ -272,8 +272,8 @@ class UserAuthController extends Controller
     $from = "AAAARpNYIuk:APA91bE7-dodC-2O-MW97FjgMA2M9de5Ra-cbffqm_USOGhwAqb3Tyl55aizOqbCkE1HWSHb75fI9vlMQfcCp1wKg2gvBXkpPMX9Rq4K9medDELG2COvOWnFkNHDWvt_dVDoHptf8Ywg";
     $msg = array
           (
-            'body'  => "Thanks for Installing Funa Akatale.",
-            'title' => "Funa Akatale",
+            'body'  => "Thanks for signing up to keep you up to date with Funa Akatale. You'll get regular updates on sales and other  offers.",
+            'title' => "Welcome to Funa Akatale",
             'receiver' => 'erw',
             'icon'  => "https://res.cloudinary.com/ivhfizons/image/upload/v1642777098/notification-logo.png",/*Default Icon*/
             'sound' => 'mySound'/*Default sound*/
@@ -301,8 +301,10 @@ class UserAuthController extends Controller
     curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
     $result = curl_exec($ch );
     // dd($result);
-    // dd($firebaseToken);
-    // print($result);
+    dd($firebaseToken);
+    print($result);
     curl_close( $ch );
 }
+
+
 }
