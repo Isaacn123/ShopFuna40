@@ -111,8 +111,9 @@ class DeviceTokenController extends Controller
             $from = "AAAARpNYIuk:APA91bE7-dodC-2O-MW97FjgMA2M9de5Ra-cbffqm_USOGhwAqb3Tyl55aizOqbCkE1HWSHb75fI9vlMQfcCp1wKg2gvBXkpPMX9Rq4K9medDELG2COvOWnFkNHDWvt_dVDoHptf8Ywg";
             $msg = array
                   (
-                    'body'  => "Thanks for signing up to keep you up to date with Funa Akatale. You'll get regular updates on sales and other  offers.",
-                    'title' => "Welcome to Funa Akatale",
+                    // 'body'  => "Thanks for signing up to keep you up to date with Funa Akatale. You'll get regular updates on sales and other  offers.",
+                    'body'  => "Thanks for signing up with Funa Akatale.",
+                    'title' => "Welcome",
                     'receiver' => 'erw',
                     'icon'  => "https://res.cloudinary.com/ivhfizons/image/upload/v1642777098/notification-logo.png",/*Default Icon*/
                     'sound' => 'mySound'/*Default sound*/

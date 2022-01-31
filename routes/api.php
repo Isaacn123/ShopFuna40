@@ -76,6 +76,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // public Routes 
 Route::post('/save-token', [App\Http\Controllers\DeviceTokenController::class, 'saveToken'])->name('save-token');
+Route::post('/send-notification', [App\Http\Controllers\DeviceTokenController::class, 'sendNotification'])->name('send-notification');
 Route::get('business/search/{name}', [BusinessController::class, 'search']); 
 Route::post('register', [UserAuthController::class, 'register']);
 Route::post('login', [UserAuthController::class, 'login']);
