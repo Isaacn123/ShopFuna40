@@ -10,16 +10,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Address;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
-use App\SendMessage\SendMessage;
+// use App\SendMessage\SendMessage;
 class UserAuthController extends Controller
 {
     //
 
 
-    public function __construct(SendMessage $sendmessage)
-    {
-        $this->sendmessage = $sendMessage;
-    }
+    // public function __construct(SendMessage $sendmessage)
+    // {
+    //     $this->sendmessage = $sendMessage;
+    // }
     
 
     /* User Registration Methods */

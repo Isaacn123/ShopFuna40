@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Notifications\Welcome;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
-use App\SendMessage\SendMessage;
+// use App\SendMessage\SendMessage;
 
 class RegisterController extends Controller
 {
@@ -40,10 +40,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct(SendMessage $sendmessage)
+    public function __construct()
     {
         $this->middleware('guest');
-        $this->sendmessage = $sendMessage;
+        // $this->sendmessage = $sendMessage;
     }
 
     /**
@@ -78,7 +78,7 @@ class RegisterController extends Controller
         // $user->notify(new WelcomeMail());
 
         Mail::to($user->email)->send(new WelcomeMail($user));
-        $this->sendmessage->sendThanksNotice();
+        // $this->sendmessage->sendThanksNotice();
         return $user;
     }
 }
