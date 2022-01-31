@@ -11,6 +11,7 @@ use App\Http\Controllers\BussinessCategoryController;
 use App\Http\Controllers\BussinessSubCategoryController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeMail;
+use App\Http\Controllers\DeviceTokenController;
 // use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,9 @@ Route::get('emails', function(){
 });
 
 
-Route::get('fcm',[Controller::class, 'index']);
-Route::get('send-notification',[Controller::class,'sendNotification']);
-Route::post('/save-token', [App\Http\Controllers\Controller::class, 'saveToken'])->name('save-token');
+Route::get('fcm',[DeviceTokenController::class, 'index']);
+Route::get('send-notification',[DeviceTokenController::class,'sendNotification']);
+Route::post('/save-token', [App\Http\Controllers\DeviceTokenController::class, 'saveToken'])->name('save-token');
 
 Route::post('/send-notification', [App\Http\Controllers\Controller::class, 'sendNotification'])->name('send.notification');
 
