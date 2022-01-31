@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Address;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
-use App\Traits\SendMessage;
+use App\SendMessage\SendMessage;
 class UserAuthController extends Controller
 {
     //

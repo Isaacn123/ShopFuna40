@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Notifications\Welcome;
 use App\Mail\WelcomeMail;
 use Illuminate\Support\Facades\Mail;
-use App\Traits\SendMessage;
+use App\SendMessage\SendMessage;
 
 class RegisterController extends Controller
 {
