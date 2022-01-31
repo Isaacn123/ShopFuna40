@@ -48,7 +48,7 @@ class Controller extends BaseController
     
             $fields = array
                     (
-                        'to'        => implode($firebaseToken),//$token,
+                        'to'        => $firebaseToken,//$token,
                         'notification'  => $msg,
                         'time_to_live' => 3600,
                     );
