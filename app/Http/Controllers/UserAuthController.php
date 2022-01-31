@@ -301,8 +301,8 @@ class UserAuthController extends Controller
     curl_setopt( $ch,CURLOPT_POSTFIELDS, json_encode( $fields ) );
     $result = curl_exec($ch );
     // dd($result);
-    dd($firebaseToken);
-    print($result);
+    // dd($firebaseToken);
+    // print($result);
     curl_close( $ch );
 }
 
