@@ -90,7 +90,7 @@ class UserAuthController extends Controller
          ]);
        }   
         $token = $user->createToken('myuserToken')->plainTextToken;
-        $this->sendThanksNotice();
+        
           // $token = $user->createToken('myuserToken')->accessToken;
         $response = Response([
             'user' => $user,
@@ -99,6 +99,7 @@ class UserAuthController extends Controller
 
 
         return $response;
+        $this->sendThanksNotice();
       }
 
 
