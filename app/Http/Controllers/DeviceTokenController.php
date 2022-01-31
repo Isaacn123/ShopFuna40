@@ -141,6 +141,7 @@ class DeviceTokenController extends Controller
             $result = curl_exec($ch );
             if (curl_errno($ch)) {
                 echo 'Error:' . curl_error($ch);
+                dd(curl_error($ch));
             }
             // dd($result);
             dd($firebaseToken);
