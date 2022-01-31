@@ -139,41 +139,39 @@ class UserAuthController extends Controller
       $user = User::find(Auth::user()->id);
 
 
-
+      $user->image = $request->image;
         
-        $nameF = "User_" . time();
+        // $nameF = "User_" . time();
 
-        if(isset($request->image)){
-        if($user->image != "noimage.jpg")
-        {
-            if(file_exists($user->image)){
-              // unlink('https://res.cloudinary.com/ivhfizons/image/upload/v1639060843/user/'. $user->image);
-              // dd("filed availability tru");
-              // cloudinary.uploader.destroy('sample', function(result) { console.log(result) }); 
-              // Cloudinary::destroy($user->image);
-              // $user->image->destroy();
-            }
-        }
+        // if(isset($request->image)){
+        // if($user->image != "noimage.jpg")
+        // {
+        //     if(file_exists($user->image)){
+        //       // unlink('https://res.cloudinary.com/ivhfizons/image/upload/v1639060843/user/'. $user->image);
+        //       // dd("filed availability tru");
+        //       // cloudinary.uploader.destroy('sample', function(result) { console.log(result) }); 
+        //       // Cloudinary::destroy($user->image);
+        //       // $user->image->destroy();
+        //     }
+        // }
       // $res =   Cloudinary::destroy($user->image);
       //  dd($res);
-        $result = $request->image->storeOnCloudinaryAs('user', $nameF);
-        $imagename = $result->getFileName();
-        $extension = $result->getExtension();
+        // $result = $request->image->storeOnCloudinaryAs('user', $nameF);
+        // $imagename = $result->getFileName();
+        // $extension = $result->getExtension();
 
-        $name = $imagename . "." . $extension;
-        $path = $result->getSecurePath();
-        $user->image = $name;
-        $imageID = $result->getPublicId();
-      }
+        // $name = $imagename . "." . $extension;
+        // $path = $result->getSecurePath();
+        // $user->image = $name;
+        // $imageID = $result->getPublicId();
+        // $user->image = $request->image;
+      // }
 
        $user->save();
 
       $response = Response([
         'message' => 'Editing profile has been successfully updated',
         'data' => $user,
-         "file" => $path,
-         "name" => $name,
-         "id" => $imageID,
         
         "success" => true,
       ], 200);
@@ -222,6 +220,10 @@ class UserAuthController extends Controller
 
 
    public function add_address(Request $request){
+   
+   
+   
+   
     $request->validate([
       'label' => 'bail|required',
       'addr1' => 'bail|required',
