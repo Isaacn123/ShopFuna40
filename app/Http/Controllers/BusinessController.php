@@ -109,13 +109,25 @@ class BusinessController extends Controller
           $businessInfo ->country = $request->country;
           $businessInfo ->city = $request->city;
           $businessInfo ->fax = $request->fax;
-          $businessInfo->image = $request->image;
           
+<<<<<<< HEAD
 
+=======
+        // $product->name = $request->name;
+        // $product->price = $request->price;
+        // $product->service_id = json_encode($request->service_id);
+        // $product->status = $request->status;
+>>>>>>> parent of a5346ff (image business)
         $nameF = "BusinessLogo_" . time();
         if($request->hasFile('image'))
         {
              $image = $request->file('image');
+<<<<<<< HEAD
+=======
+            // $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
+            // $destinationPath = public_path('/images/business/logo');
+            // $image->move($destinationPath, $name);
+>>>>>>> parent of a5346ff (image business)
 
         $result = $request->image->storeOnCloudinaryAs('business', $nameF);
         $imagename = $result->getFileName();
