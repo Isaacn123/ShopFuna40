@@ -106,8 +106,8 @@ class DeviceTokenController extends Controller
              
             $firebaseToken = User::whereNotNull('device_token')->pluck('device_token')->all();
 
-            $token = "fb9HoBAlTKKuV98t7R_Lm6:APA91bEzJvYmnt3m9d7d4JCrz9zSFaIioIrwXxaiOTLJR-JxvDekoAKS-kJHYX8wZgetytKOiKhdzjZv8tCbmPJbRENzpiOUrQ4hzwBbzX9rGr5H-hMQ2q8-ke3KCYsEKVj5DwpieWHa";  
-            $topic = "topics/Welcome";
+            // $token = "fb9HoBAlTKKuV98t7R_Lm6:APA91bEzJvYmnt3m9d7d4JCrz9zSFaIioIrwXxaiOTLJR-JxvDekoAKS-kJHYX8wZgetytKOiKhdzjZv8tCbmPJbRENzpiOUrQ4hzwBbzX9rGr5H-hMQ2q8-ke3KCYsEKVj5DwpieWHa";  
+            // $topic = "topics/Welcome";
             $from = "AAAARpNYIuk:APA91bE7-dodC-2O-MW97FjgMA2M9de5Ra-cbffqm_USOGhwAqb3Tyl55aizOqbCkE1HWSHb75fI9vlMQfcCp1wKg2gvBXkpPMX9Rq4K9medDELG2COvOWnFkNHDWvt_dVDoHptf8Ywg";
             $msg = array
                   (
@@ -121,9 +121,8 @@ class DeviceTokenController extends Controller
     
             $fields = array
                     (
-                        'registration_ids' => $firebaseToken, // "registration_ids" => $firebaseToken, ///'to' => implode($firebaseToken),//$token,
+                        'to' => $firebaseToken, // "registration_ids" => $firebaseToken, ///'to' => implode($firebaseToken),//$token,
                         'notification'  => $msg,
-                        'time_to_live' => 3600,
                     );
     
             $headers = array
