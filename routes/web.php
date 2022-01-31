@@ -9,6 +9,7 @@ use App\Http\Controllers\BussinessCategoryController;
 use App\Http\Controllers\BussinessSubCategoryController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\WelcomeMail;
+// use App\Http\Controllers\Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,14 @@ Route::get('emails', function(){
     Mail::to('nsambai72@gmail.com')->send(new WelcomeMail());
    return new WelcomeMail();
 });
+
+
+Route::get('fcm',[Controller::class, 'index']);
+Route::get('send-notification',[Controller::class,'sendNotification']);
+Route::post('/save-token', [App\Http\Controllers\Controller::class, 'saveToken'])->name('save-token');
+
+Route::post('/send-notification', [App\Http\Controllers\Controller::class, 'sendNotification'])->name('send.notification');
+
 
 // Auth::routes();
 
