@@ -112,20 +112,20 @@ class BusinessController extends Controller
           $businessInfo->image = $request->image;
           
 
-        // $nameF = "BusinessLogo_" . time();
-        // if($request->hasFile('image'))
-        // {
-        //      $image = $request->file('image');
+        $nameF = "BusinessLogo_" . time();
+        if($request->hasFile('image'))
+        {
+             $image = $request->file('image');
 
-        // $result = $request->image->storeOnCloudinaryAs('business', $nameF);
-        // $imagename = $result->getFileName();
-        // $extension = $result->getExtension();
+        $result = $request->image->storeOnCloudinaryAs('business', $nameF);
+        $imagename = $result->getFileName();
+        $extension = $result->getExtension();
 
-        // $name = $imagename . "." . $extension;
-        // $path = $result->getSecurePath();
-        // $imageID = $result->getPublicId(); 
-        // $businessInfo->image = $name;
-        // }
+        $name = $imagename . "." . $extension;
+        $path = $result->getSecurePath();
+        $imageID = $result->getPublicId(); 
+        $businessInfo->image = $name;
+        }
 
         $nameF = "Featured_" . time();
         if($request->hasFile('featured_image'))
@@ -221,33 +221,79 @@ class BusinessController extends Controller
        $company ->subcategoryName = $request->subcategoryName;
        $company ->country = $request->country;
        $company ->city = $request->city;
-       
+       $company->image = $request->image; 
+       $company->featured_image = $request->featured_image; 
+
+       if(isset($request->image))
+        {
+            if($request->publicIdLogo != null){
+                if($request->publicIdLogo != "business/noLogo.png")
+                {
+                 cloudinary()->destroy($request->publicIdLogo);
+                }
+            }
+          
+        };
+
+
+       if(isset($request->featured_image))
+       {
+           if($request->publicIdbanner != null){
+               if($request->publicIdbanner != "featured/no_featuredImage.jpg")
+               {
+                cloudinary()->destroy($request->publicIdbanner);
+               }
+           }
+         
+       };
+
      // $product->name = $request->name;
      // $product->price = $request->price;
      // $product->service_id = json_encode($request->service_id);
      // $product->status = $request->status;
      
-     if($request->hasFile('image'))
-     {
-         $image = $request->file('image');
-         $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
-         $destinationPath = public_path('/images/business/logo');
-         $image->move($destinationPath, $name);
-         $company->image = $name;
-     }
+    //  if($request->hasFile('image'))
+    //  {
+    //     //  $image = $request->file('image');
+    //     //  $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
+    //     //  $destinationPath = public_path('/images/business/logo');
+    //     //  $image->move($destinationPath, $name);
+
+    //     $nameF = "BusinessLogo_" . time();
+    //     if($request->hasFile('image'))
+    //     {
+    //     $image = $request->file('image');
+
+    //     $result = $request->image->storeOnCloudinaryAs('business', $nameF);
+    //     $imagename = $result->getFileName();
+    //     $extension = $result->getExtension();
+
+    //     $name = $imagename . "." . $extension;
+     
+    //     }
+    //      $company->image = $name;
+    //  }else{
+    //     $company->image = $request->image; 
+    //  }
 
 
-     // $businessInfo ->featured_business = $request-> featured_business;
+    //  // $businessInfo ->featured_business = $request-> featured_business;
 
-
-       if($request->hasFile('featured_image'))
-       {
-           $image = $request->file('featured_image');
-           $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
-           $destinationPath = public_path('/images/business/featuredImage ');
-           $image->move($destinationPath, $name);
-           $businessInfo->featured_image = $name;
-       }
+    //     $nameF = "Featured_" . time();
+    //    if($request->hasFile('featured_image'))
+    //    {
+    //         $image = $request->file('featured_image');
+    //     //    $name = 'Business_'.time().'.'. $image->getClientOriginalExtension();
+    //     //    $destinationPath = public_path('/images/business/featuredImage ');
+    //     //    $image->move($destinationPath, $name);
+    //     $result    = $request->featured_image->storeOnCloudinaryAs('featured', $nameF);
+    //     $imagename = $result->getFileName();
+    //     $extension = $result->getExtension();
+    //     $name = $imagename . "." . $extension;
+    //     $company->featured_image = $name;
+    //    }else{
+    //     $company->featured_image = $request->featured_image; 
+    //    }
     //    $company->save();
        
        $company->update();
