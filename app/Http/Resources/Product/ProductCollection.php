@@ -16,18 +16,21 @@ class ProductCollection extends JsonResource
     {
         // return parent::toArray($request);
         return[
+            'id' => $this->id,
             'name' =>$this->name,
             'price' =>$this->price,
             'user_id' =>$this->user_id,
+            'stock' => $this ->stock,
             'category_id' => $this -> category_id,
             'total_price' => round((1 - ($this->discount/100)) * $this->price,2),
+            // 'total_price' => (1 - ($this->discount/100)) * $this->price,
             'discount' => $this->discount,
             'imagePath' => $this->imagePath,
             'qty' => $this->qty,
             'description' =>$this->description,
             'subCategory_id' => $this->subCategory_id,
             'companyName' => $this->companyName,
-            'featured_image' => $this ->featured_image,
+            'featured_image' => $this->featured_image,
             'created_at' => $this->created_at,
             'user_phone' => $this->phone,
             'related' => $this->related_products,
