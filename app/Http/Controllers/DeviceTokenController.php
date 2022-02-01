@@ -113,7 +113,7 @@ class DeviceTokenController extends Controller
                   (
                     // 'body'  => "Thanks for signing up to keep you up to date with Funa Akatale. You'll get regular updates on sales and other  offers.",
                     'body'  => "Thanks for signing up with Funa Akatale.",
-                    'title' => "PUSH_APP_TITLE",
+                    'title' => "Welcome",
                     'receiver' => 'erw',
                     'icon'  => "https://res.cloudinary.com/ivhfizons/image/upload/v1642777098/notification-logo.png",/*Default Icon*/
                     'sound' => 'mySound'/*Default sound*/
