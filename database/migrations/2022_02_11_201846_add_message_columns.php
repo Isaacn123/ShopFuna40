@@ -16,7 +16,7 @@ class AddMessageColumns extends Migration
         //
         Schema::table('messages', function (Blueprint $table) {
 
-            $table->string('user_id')->nullable();
+        
             $table->string('user_email')->nullable();
             $table->string('product_id')->nullable();
             $table->string('product_name')->nullable();
