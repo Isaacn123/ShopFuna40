@@ -17,10 +17,10 @@ class AddMessageColumns extends Migration
         Schema::table('messages', function (Blueprint $table) {
 
         
-            $table->string('product_id')->nullable();
+            // $table->string('product_id')->nullable();
             $table->string('product_user')->nullable();
-            $table->string('product_name')->nullable();
-            $table->string('product_image')->nullable();
+            // $table->string('product_name')->nullable();
+            // $table->string('product_image')->nullable();
             
         });
     }
