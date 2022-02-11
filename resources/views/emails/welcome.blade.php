@@ -3,7 +3,7 @@
 
 Hi *{{$name}}**,
 
-Thanks you for taking time to signing up on Funa Akatale. Your email is #{{email}}.
+Thanks you for taking time to signing up on Funa Akatale. Your email is *{{email}}**.
 You can now access your account to view or edit your account,orders, change your password, and more.
 
 @component('mail::button', ['url' => 'http://www.funa-akatale.com'])

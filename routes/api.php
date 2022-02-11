@@ -19,6 +19,7 @@ use App\Http\Controllers\BusinessAllCategories;
 use App\Http\Controllers\BusinessAllSubCategories;
 use App\Http\Controllers\VideoadsController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,8 @@ Route::get('business/{category}', [BusinessController::class, 'business']);
 Route::post('apply', [JobApplicationController::class, 'store']); 
 Route::apiResource('messages',MessageController::class); 
 Route::apiResource('banner',BannerController::class); 
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 
 Route::get('products/all',[ProductController::class, 'productcompany']); 
 
