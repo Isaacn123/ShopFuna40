@@ -45,6 +45,10 @@ class MessageController extends Controller
         $message->flag = $request-> flag;
         $message->guest_id = $request->guest_id;
         $message->user_id = $request->user_id;
+        $message->product_user = $request->product_user;
+        $message->product_id = $request->product_id;
+        $message->product_name = $request->product_name;
+        $message->product_image = $request->product_image;
         $message->description = $request-> description;
         $message->profileurl = $request-> profileurl;
 
