@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Comment;
 
 class Message extends Model
-{
+{ 
     use HasFactory;
     protected $fillable = [
         'name',
