@@ -116,6 +116,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/userproduct',[UserAuthController::class, 'products']);
     Route::delete('banner/delete/{id}', [BannerController::class, 'delete']);
     Route::delete('videoadd/delete/{id}', [VideoadsController::class, 'delete']);
+    Route::delete('messages/delete/{id}', [MessageController::class, 'delete']);
     
    
 }); 

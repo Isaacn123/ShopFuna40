@@ -105,4 +105,20 @@ class MessageController extends Controller
     {
         //
     }
+
+
+
+    public function delete($id)
+    {
+        //
+        $message = Message::find($id);
+        $message->delete();
+        $response = [
+            'message' => 'product successfully Deleted',
+            'success' => true,
+
+        ];
+
+        return $response;
+    }
 }
