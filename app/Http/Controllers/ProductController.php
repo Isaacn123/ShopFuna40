@@ -213,6 +213,7 @@ class ProductController extends Controller
         $product ->user_id = intval($request->user_id);
         $product ->description = $request->description;
         $product ->price = intval($request->price);
+        $product ->email = $request-> email;
         $product ->discount = intval($request->discount);
         $product ->companyName = $request->companyName;
         $product ->category_id = $request->category_id;
@@ -317,7 +318,7 @@ class ProductController extends Controller
              'message' => 'product successfully Deleted',
              'success' => true,
 
-         ], response::HTTP_CREATED);
+         ], response::HTTP_NO_CONTENT);
 
          return $response;
     }
