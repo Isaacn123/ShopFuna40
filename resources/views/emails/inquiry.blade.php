@@ -3,7 +3,7 @@
 From: *{{$from}}**
 Date: *{{$date}}**
 
-Subject: *{{$subject})**
+Subject: *{{$subject}}**
 
 Dear Sir/Madam 
 
