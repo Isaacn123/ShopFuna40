@@ -6,6 +6,7 @@ use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMessageRequest;
 use App\Mail\ProductInquiry;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
