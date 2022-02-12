@@ -31,7 +31,7 @@ class ProductInquiry extends Mailable
      */
     public function build()
     {
-        $mytime = Carbon\Carbon::now();
+        $mytime = Carbon::now();
         $data = array(
             'from'      => $this->inquiry['email'],
             'to'     => $this->inquiry['user_email'],
