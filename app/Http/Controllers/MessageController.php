@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMessageRequest;
+use App\Mail\ProductInquiry;
 
 class MessageController extends Controller
 {
@@ -54,7 +55,7 @@ class MessageController extends Controller
         $message->profileurl = $request-> profileurl;
 
         $message->save();
-
+        Mail::to($message->user_email)->send(new ProductInquiry($message));
         return[
             "data" => $message,
             "status" => 200,
