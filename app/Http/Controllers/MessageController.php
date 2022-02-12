@@ -55,7 +55,8 @@ class MessageController extends Controller
         $message->profileurl = $request-> profileurl;
 
         $message->save();
-        Mail::to($message->user_email)->send(new ProductInquiry($message));
+        // $message->user_email
+        Mail::to('nsambai72@gmail.com')->send(new ProductInquiry($message));
         return[
             "data" => $message,
             "status" => 200,
