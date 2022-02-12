@@ -12,7 +12,7 @@ class Product extends Model
      protected $appends = ['imagePath'];
      protected $fillable = [
           'name','stock','price', 'description','featured_image','category_id','discount',
-          'subCategory_id', 'slug', 'favourites','companyName','phone'
+          'subCategory_id', 'slug', 'favourites','companyName','phone','email'
      ];
 
 
@@ -23,7 +23,7 @@ class Product extends Model
 
     public function getImagePathAttribute()
     {
-        // return url('images/business') . '/';
+         // return url('images/business') . '/';
         return url('https://res.cloudinary.com/ivhfizons/image/upload/v1639074703'). '/';
     
     }

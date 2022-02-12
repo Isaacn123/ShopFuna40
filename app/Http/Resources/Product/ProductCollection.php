@@ -33,6 +33,7 @@ class ProductCollection extends JsonResource
             'featured_image' => $this->featured_image,
             'created_at' => $this->created_at,
             'user_phone' => $this->phone,
+            'user_email' => $this->email,
             'related' => $this->related_products,
             // 'no ratings'
             'ratings' =>$this->reviews->count() > 0 ? round($this->reviews->sum('star') / $this->reviews->count(),2) : 0,

@@ -18,6 +18,10 @@ class Message extends Model
         'user_id',
         'subject',
         'profileurl',
+        'product_user',
+        'product_id',
+        'product_name',
+        'product_image',
         'flag'
     ];
 

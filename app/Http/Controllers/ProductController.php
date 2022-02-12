@@ -104,6 +104,7 @@ class ProductController extends Controller
         $product ->subCategory_id = $request->subCategory_id;
         $product ->stock = $request->stock;
         $product ->phone = $request->phone;
+        $product ->email = $request->email;
         $product ->slug = $request-> slug;
         $nameF = "Product_" . time();
         if(isset($request->featured_image)){
