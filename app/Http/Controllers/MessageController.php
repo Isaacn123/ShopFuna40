@@ -57,7 +57,7 @@ class MessageController extends Controller
 
         $message->save();
         // $message->user_email
-        Mail::to('nsambai72@gmail.com')->send(new ProductInquiry($message));
+        Mail::to($message->user_email)->send(new ProductInquiry($message));
         return[
             "data" => $message,
             "status" => 200,
