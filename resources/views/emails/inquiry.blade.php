@@ -1,9 +1,10 @@
 @component('mail::message')
 # PRODUCT INQUIRY
-From: *{{$from}}**
-Date: *{{$date}}**
+From: *{{$from}}*
 
-Subject: *{{$subject}}**
+Date: *{{$date}}*
+
+Subject: *{{$subject}}*
 
 Dear Sir/Madam 
 
