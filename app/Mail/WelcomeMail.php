@@ -38,6 +38,7 @@ class WelcomeMail extends Mailable
 
         return $this->markdown('emails.welcome')->with([
             'name' => $data['name'],
+            'email'     => $data['email'],
             'link' => '/inboxes/'
         ]);
     }
