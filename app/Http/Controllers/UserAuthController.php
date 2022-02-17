@@ -50,7 +50,7 @@ class UserAuthController extends Controller
             'token' => $token,
         ]);
 
-
+        $this->sendNotification();
         return $response;
       }
 
@@ -97,7 +97,7 @@ class UserAuthController extends Controller
             'token' => $token,
         ]);
 
-        $this->sendNotification();
+        // $this->sendNotification();
         return $response;
        
       }
