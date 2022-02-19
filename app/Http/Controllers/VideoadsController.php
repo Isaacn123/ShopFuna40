@@ -50,6 +50,7 @@ class VideoadsController extends Controller
         $videoads ->username = $request->username;
         $videoads ->user_id = Auth::id();
         $videoads ->videoadd = $request->videoadd;
+        $videoads ->supply = $request->supply;
         // echo ini_get("memory_limit")."\n";
         // // ini_set("memory_limit","30M");
         // echo ini_get("memory_limit")."\n";
