@@ -12,6 +12,7 @@ class Videoads extends Model
        'user_id',
        'username',
        'name',
-       'videoadd'
+       'videoadd',
+       'supply'
     ];
 }
