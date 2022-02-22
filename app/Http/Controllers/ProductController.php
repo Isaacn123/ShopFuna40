@@ -301,6 +301,10 @@ class ProductController extends Controller
          return $response;
     }
 
+    public function updateImage(Request $request,$id){
+     $image = Product::where('id', $id)->update(array('related_products' => $request->related_products));
+    }
+
     /**
      * Remove the specified resource from storage.
      *

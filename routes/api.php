@@ -117,6 +117,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::delete('banner/delete/{id}', [BannerController::class, 'delete']);
     Route::delete('videoadd/delete/{id}', [VideoadsController::class, 'delete']);
     Route::delete('messages/delete/{id}', [MessageController::class, 'delete']);
+    Route::post('products/update/{id}', [ProductController::class,'updateImage']);
      
 }); 
 
