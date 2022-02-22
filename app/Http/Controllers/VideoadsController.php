@@ -112,7 +112,7 @@ class VideoadsController extends Controller
         $video = Videoads::find($id);
         $video ->name = $request->name;
         $video ->username = $request->username;
-        $video ->user_id = $request->user_id;
+        $video ->user_id = intval($request->user_id);
         $video ->videoadd = $request->videoadd;
         $video ->supply = $request->supply;
 
