@@ -314,11 +314,11 @@ class ProductController extends Controller
       $this->productCheckUser($product);
 
        $products = $product->delete();
-         $response = response([
+         $response = Response([
              'message' => 'product successfully Deleted',
              'success' => true,
 
-         ], response::HTTP_NO_CONTENT);
+         ], Response::HTTP_NO_CONTENT);
 
          return $response;
     }
