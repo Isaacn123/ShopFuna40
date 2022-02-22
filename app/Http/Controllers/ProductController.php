@@ -236,14 +236,14 @@ class ProductController extends Controller
           
         };
 
-        if(isset($request->related_products))
-        {
-            if($request->publicIdbanner != null){
+        // if(isset($request->related_products))
+        // {
+        //     if($request->publicIdbanner != null){
                
-                $files = $request->file('related_products');
-            }
+        //         $files = $request->file('related_products');
+        //     }
           
-        };
+        // };
 
 
         // $nameF = "Product_" . time();
