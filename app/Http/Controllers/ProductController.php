@@ -11,6 +11,7 @@ use App\Http\Resources\Product\ProductResource;
 use App\Illuminate\Http\Response;
 use App\Exceptions\ProductNotBelongsToUser;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Log;
 // use Monolog\Logger;
 
