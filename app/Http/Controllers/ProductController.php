@@ -221,7 +221,7 @@ class ProductController extends Controller
         $product ->stock = intval($request->stock);
         $product ->phone = $request->phone;
         $product ->slug = $request-> slug;
-        // $product->related_products = $request->related_products; 
+        $product->related_products = $request->related_products; 
         $product->featured_image = $request->featured_image; 
 
         if(isset($request->featured_image))
