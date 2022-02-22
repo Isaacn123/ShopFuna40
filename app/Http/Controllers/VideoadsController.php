@@ -106,9 +106,23 @@ class VideoadsController extends Controller
      * @param  \App\Models\Videoads  $videoads
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Videoads $videoads)
+    public function update(Request $request, $id)
     {
         //
+        $video = Videoads::find($id);
+        $video ->name = $request->name;
+        $video ->username = $request->username;
+        $video ->user_id = $request->user_id;
+        $video ->videoadd = $request->videoadd;
+        $video ->supply = $request->supply;
+
+        $video->save();
+
+        return [
+            "data" => $video,
+            "success" => true,
+            "message" => "Video Successfully Updated"
+        ];
     }
 
     /**
@@ -130,7 +144,7 @@ class VideoadsController extends Controller
         $cvs = Videoads::find($id);
         $cvs->delete();
         $response = [
-            'message' => 'product successfully Deleted',
+            'message' => 'Video successfully Deleted',
             'success' => true,
 
         ];
