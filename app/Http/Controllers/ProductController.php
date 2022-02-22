@@ -303,6 +303,12 @@ class ProductController extends Controller
 
     public function updateImage(Request $request,$id){
      $image = Product::where('id', $id)->update(array('related_products' => $request->related_products));
+
+     return [
+         "data" => $image,
+         "message" =>"Successfully updated",
+         "status" =>200
+     ];
     }
 
     /**
