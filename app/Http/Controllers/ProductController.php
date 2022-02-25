@@ -342,4 +342,20 @@ class ProductController extends Controller
         }
 
     }
+
+
+
+    public function delete($id)
+    {
+        //
+        $cvs = Product::find($id);
+        $cvs->delete();
+        $response = [
+            'message' => 'product successfully Deleted',
+            'success' => true,
+
+        ];
+
+        return $response;
+    }
 }
