@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreJobApplication;
 use App\Models\JobApplication;
 use App\Mail\ApplyJobs;
+use Illuminate\Support\Facades\Mail;
 
 class JobApplicationController extends Controller
 {
