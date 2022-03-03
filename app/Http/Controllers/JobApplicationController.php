@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreJobApplication;
 use App\Models\JobApplication;
+use App\Mail\ApplyJobs;
 
 class JobApplicationController extends Controller
 {
@@ -57,6 +58,7 @@ class JobApplicationController extends Controller
         $jobapplication ->jobTitle = $request->jobTitle;
         $jobapplication ->company_name = $request->company_name; 
         $jobapplication ->job_id = $request->job_id;
+        $jobapplication ->company_email = $request->company_email;
 
          
         $nameF = "ApplicationResum_" . $request->firstName . "_" . $request->lastName .time();
@@ -74,6 +76,7 @@ class JobApplicationController extends Controller
         }
 
         $jobapplication->save();
+        Mail::to($jobapplication->company_email)->send(new ApplyJobs($jobapplication));
         $response = response([
             "data" => $jobapplication, 
             "status" => 'ok',
