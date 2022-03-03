@@ -59,21 +59,20 @@ class JobApplicationController extends Controller
         $jobapplication ->company_name = $request->company_name; 
         $jobapplication ->job_id = $request->job_id;
         $jobapplication ->company_email = $request->company_email;
+        $jobapplication->resume = $request->resume;
 
          
-        $nameF = "ApplicationResum_" . $request->firstName . "_" . $request->lastName .time();
-        if(isset($request->resume)){
-            $result = $request->resume->storeOnCloudinaryAs('jobApplications', $nameF);
-            $imagename = $result->getFileName();
-            $extension = $result->getExtension();
+        // $nameF = "ApplicationResum_" . $request->firstName . "_" . $request->lastName .time();
+        // if(isset($request->resume)){
+        //     $result = $request->resume->storeOnCloudinaryAs('jobApplications', $nameF);
+        //     $imagename = $result->getFileName();
+        //     $extension = $result->getExtension();
     
-            $name = $imagename . "." . $extension;
-            $path = $result->getSecurePath();
-            $jobapplication->resume = $name;
-            // $imageID = $result->getPublicId();
-
-
-        }
+        //     $name = $imagename . "." . $extension;
+        //     $path = $result->getSecurePath();
+        //     $jobapplication->resume = $name;
+        //     // $imageID = $result->getPublicId();
+        // }
 
         $jobapplication->save();
         Mail::to($jobapplication->company_email)->send(new ApplyJobs($jobapplication));
