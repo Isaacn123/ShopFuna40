@@ -30,6 +30,10 @@ class ApplyforJob extends Mailable
     public function build()
     {
         // return $this->markdown('emails.jobapplication');
+        // ->attach($url,[
+        //     'as' => $data['file'],
+        //     'mime'     => 'application/pdf'
+        // ])
         $url = "https://res.cloudinary.com/ivhfizons/image/upload/v1639074703";
         $data = array(
             'name'      => $this->application['firstName'] + $this->application['lastName'],
@@ -39,12 +43,7 @@ class ApplyforJob extends Mailable
             'file'     => $this->application['resume'],
             'job_title' => $this->application['jobTitle'],
         );
-        return $this->markdown('emails.jobapplication')
-        ->attach($url,[
-            'as' => $data['file'],
-            'mime'     => 'application/pdf'
-        ])
-        ->with([
+        return $this->markdown('emails.jobapplication')->with([
             'name' => $data['name'],
             'email'     => $data['email'],
             'phone' => $data['phone'],
