@@ -43,6 +43,7 @@ class UserAuthController extends Controller
         ]);
 
         Mail::to($user->email)->send(new WelcomeMail($user));
+        
 
         $token = $user->createToken('myuserToken')->plainTextToken;
         $response = Response([

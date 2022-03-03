@@ -83,8 +83,8 @@ class JobApplicationController extends Controller
             "success" => true,
             "message" => "Job created successfully"
         ], 200);
-
-        Mail::to($request->company_email)->send(new ApplyforJob($jobapplication));
+        // Mail::to($user->email)->send(new WelcomeMail($user));
+        // Mail::to($request->company_email)->send(new ApplyforJob($jobapplication));
         return $response;
     }
 
