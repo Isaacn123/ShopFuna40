@@ -4,7 +4,8 @@ From: *{{$email}}*
 
 Subject: Application for the post of an *{{$job}}*
 
-Dear Sir/Madam<br>
+Dear Sir/Madam
+
 This email is in reference to your advertisment on FUNA AKATALE APP.
 {{$message}}.<br>
 I thank you for your time and consideration. i look forward for an opportunity to to sit for an interview with you.I can be contacted at {{$phone}}
