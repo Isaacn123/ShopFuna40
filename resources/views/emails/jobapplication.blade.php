@@ -1,8 +1,11 @@
 @component('mail::message')
 # Job Application
 From: *{{$email}}*
-Subject: *Application for the post of an {{$job}}*
+
+Subject: Application for the post of an *{{$job}}*
+
 Dear Sir/Madam
+
 This email is in reference to your advertisment on FUNA AKATALE APP.<br>
 {{$message}}.
 

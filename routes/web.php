@@ -41,7 +41,7 @@ Route::resource('sub-category', subCategoryController::class);
 Route::resource('dash-b', DashboardController::class);
 
 Route::get('emails', function(){
-    Mail::to('nsambai72@gmail.com')->send(new WelcomeMail());
+    // Mail::to('nsambai72@gmail.com')->send(new WelcomeMail());
    return new WelcomeMail();
 });
 
