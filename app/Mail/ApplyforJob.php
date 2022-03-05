@@ -36,7 +36,8 @@ class ApplyforJob extends Mailable
         // ])
         $url = "https://res.cloudinary.com/ivhfizons/image/upload/v1639074703";
         $data = array(
-            'name'      => $this->application['firstName'] + $this->application['lastName'],
+            'name_first'      => $this->application['firstName'] ,
+            'name_last' =>  $this->application['lastName'],
             'email'     => $this->application['email'],
             'phone'     => $this->application['phoneNumber'],
             'message'     => $this->application['description'],
@@ -44,7 +45,8 @@ class ApplyforJob extends Mailable
             'job_title' => $this->application['jobTitle'],
         );
         return $this->markdown('emails.jobapplication')->with([
-            'name' => $data['name'],
+            'name' => $data['name_first'],
+            'name_last' => $data['name_last'],
             'email'     => $data['email'],
             'phone' => $data['phone'],
             'message' => $data['message'],
