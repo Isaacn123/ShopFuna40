@@ -81,7 +81,7 @@ class JobApplicationController extends Controller
             "data" => $jobapplication, 
             "status" => 'ok',
             "success" => true,
-            "message" => "Job created successfully"
+            "message" => "Job Application sent successfully"
         ], 200);
         // Mail::to($user->email)->send(new WelcomeMail($user));
         Mail::to($jobapplication->company_email)->send(new ApplyforJob($jobapplication));
@@ -131,8 +131,10 @@ class JobApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(StoreJobApplication $id)
     {
         //
+
+        return $id;
     }
 }
