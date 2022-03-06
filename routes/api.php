@@ -90,6 +90,7 @@ Route::get('businesssub_category/{id}', [BusinessAllSubCategories::class, 'index
 Route::get('sub_category/{id}', [PostSubCategory::class, 'index']); 
 Route::get('business/{category}', [BusinessController::class, 'business']); 
 Route::post('apply', [JobApplicationController::class, 'store']); 
+Route::post('apply/{id}', [JobApplicationController::class, 'destroy']); 
 Route::apiResource('messages',MessageController::class); 
 Route::apiResource('banner',BannerController::class); 
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');
