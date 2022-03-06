@@ -135,6 +135,14 @@ class JobApplicationController extends Controller
     {
         //
 
-        return $id;
+        $respo = $id->delete();
+
+        $message = [
+            "data" => $respo,
+            "status" => 200,
+            "message" => "deleted successfully"
+        ];
+
+        return $message;
     }
 }
