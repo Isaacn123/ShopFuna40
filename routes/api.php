@@ -96,6 +96,7 @@ Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 
 Route::get('products/all',[ProductController::class, 'productcompany']); 
+Route::apiResource('applys', JobApplicationController::class); 
 
 // protected Routes
 Route::group(['middleware' => 'auth:sanctum'], function () {
