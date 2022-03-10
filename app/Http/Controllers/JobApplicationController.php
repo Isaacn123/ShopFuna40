@@ -61,6 +61,7 @@ class JobApplicationController extends Controller
         $jobapplication ->job_id = $request->job_id;
         $jobapplication ->company_email = $request->company_email;
         $jobapplication->resume = $request->resume;
+        $jobapplication->path = $request->path;
 
          
         // $nameF = "ApplicationResum_" . $request->firstName . "_" . $request->lastName .time();
