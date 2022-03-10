@@ -44,6 +44,7 @@ class ApplyforJob extends Mailable
             'file'     => $this->application['resume'],
             'path'     => $this->application['imagePath'],
             'job_title' => $this->application['jobTitle'],
+            'path'     => $this->application['path'],
         );
         return $this->markdown('emails.jobapplication')
         ->with([
@@ -55,7 +56,7 @@ class ApplyforJob extends Mailable
             'job' => $data['job_title'],
 
         ])
-        ->attach($data['path']."/".$data['file']
+        ->attach($data['path']
         // ->attach(asset($data['file']), ['mime' => 'application/pdf']);"
         // ->attachData("https://res.cloudinary.com/ivhfizons/image/upload/v1639074703/uploads/poo7te9essqljbrqbjzz".".pdf",'resume.pdf',
         //  [

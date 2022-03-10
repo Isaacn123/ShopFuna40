@@ -31,6 +31,7 @@ class Job extends Model
         'companyLogo',
         'responsibility',
         'skills',
+        
     ];
 
     public function getImagePathAttribute()

@@ -26,6 +26,7 @@ class JobApplication extends Model
        'jobTitle',
        'job_id',
        'company_name',
+       'path'
     ];
 
     public function getImagePathAttribute()
