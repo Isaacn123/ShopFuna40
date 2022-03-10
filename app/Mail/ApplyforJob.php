@@ -42,7 +42,6 @@ class ApplyforJob extends Mailable
             'phone'     => $this->application['phoneNumber'],
             'message'     => $this->application['description'],
             'file'     => $this->application['resume'],
-            'path'     => $this->application['imagePath'],
             'job_title' => $this->application['jobTitle'],
             'path'     => $this->application['path'],
         );
