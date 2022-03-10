@@ -55,11 +55,12 @@ class ApplyforJob extends Mailable
             'job' => $data['job_title'],
 
         ])
+        ->attach("http://www.w3schools.com/html/html5.gif"
         // ->attach(asset($data['file']), ['mime' => 'application/pdf']);"
-        ->attachData("https://res.cloudinary.com/ivhfizons/image/upload/v1639074703/uploads/poo7te9essqljbrqbjzz".".pdf",'resume.pdf',
-         [
-            'mime' => 'application/pdf'],
-        // ,[
+        // ->attachData("https://res.cloudinary.com/ivhfizons/image/upload/v1639074703/uploads/poo7te9essqljbrqbjzz".".pdf",'resume.pdf',
+        //  [
+        //     'mime' => 'application/pdf'],
+        // // ,[
         //     'as' => "resume.pdf",
         //     'mime'     => 'application/pdf'
         // ]
