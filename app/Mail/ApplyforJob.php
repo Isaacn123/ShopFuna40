@@ -42,22 +42,26 @@ class ApplyforJob extends Mailable
             'phone'     => $this->application['phoneNumber'],
             'message'     => $this->application['description'],
             'file'     => $this->application['resume'],
+            'path'     => $this->application['imagePath'],
             'job_title' => $this->application['jobTitle'],
         );
-        return $this->markdown('emails.jobapplication')->with([
+        return $this->markdown('emails.jobapplication')
+        ->with([
             'name' => $data['name_first'],
             'name_last' => $data['name_last'],
             'email'     => $data['email'],
             'phone' => $data['phone'],
             'message' => $data['message'],
-            'job' => $data['job_title']
+            'job' => $data['job_title'],
 
         ])
         // ->attach(asset($data['file']), ['mime' => 'application/pdf']);
-        ->attach($url,[
-            'as' => "resume.pdf",
-            'mime'     => 'application/pdf'
-        ]);
+        ->attach($data['path']."/".$data['file']
+        // ,[
+        //     'as' => "resume.pdf",
+        //     'mime'     => 'application/pdf'
+        // ]
+    );
 
         // dd($url."/".$data['file']);
     }
