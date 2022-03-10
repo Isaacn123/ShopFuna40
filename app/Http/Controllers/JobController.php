@@ -121,9 +121,22 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Job $job)
+    public function update(Request $request,$id)
     {
         //
+
+        $jobapp = Job::find($id);
+
+        $post = $jobapp->update($request->all());
+
+        $requestpost = [
+            "data" => $post,
+            "status" => 200,
+            "message" => "Successfully updated"
+        ];
+
+        return $requestpost;
+
     }
 
     /**
@@ -135,5 +148,14 @@ class JobController extends Controller
     public function destroy(Job $job)
     {
         //
+        $respo = $id->delete();
+
+        $message = [
+            "data" => $respo,
+            "status" => 200,
+            "message" => "deleted successfully"
+        ];
+
+        return $message;
     }
 }

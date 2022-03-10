@@ -122,6 +122,17 @@ class JobApplicationController extends Controller
     public function update(StoreJobApplication $request, $id)
     {
         //
+        // $jobapp = JobApplication::find($id);
+
+        //  $post = $jobapp->update($request->all());
+
+        //  $requestpost = [
+        //      "data" => $post,
+        //      "status" => 200,
+        //      "message" => "Successfully updated"
+        //  ];
+
+        //  return $requestpost;
 
     }
 
