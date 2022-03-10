@@ -34,7 +34,7 @@ class ApplyforJob extends Mailable
         //     'as' => $data['file'],
         //     'mime'     => 'application/pdf'
         // ])
-        $url = "https://res.cloudinary.com/ivhfizons/image/upload/v1639074703";
+        $url = "https://res.cloudinary.com/ivhfizons/image/upload/v1639074703/".$this->application['resume'];
         $data = array(
             'name_first'      => $this->application['firstName'] ,
             'name_last' =>  $this->application['lastName'],
@@ -55,10 +55,10 @@ class ApplyforJob extends Mailable
         ])
         // ->attach(asset($data['file']), ['mime' => 'application/pdf']);
         ->attach($url,[
-            'as' => $data['file']."pdf",
+            'as' => "resume.pdf",
             'mime'     => 'application/pdf'
         ]);
 
-        dd($url."/".$data['file']);
+        // dd($url."/".$data['file']);
     }
 }
