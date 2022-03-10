@@ -148,7 +148,7 @@ class JobController extends Controller
     public function destroy(Job $job)
     {
         //
-        $respo = $id->delete();
+        $respo = $job->delete();
 
         $message = [
             "data" => $respo,
