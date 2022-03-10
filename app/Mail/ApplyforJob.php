@@ -53,9 +53,6 @@ class ApplyforJob extends Mailable
             'job' => $data['job_title']
 
         ])
-        ->attach($url,[
-            'as' => $data['file'],
-            'mime'     => 'application/pdf'
-        ]);
+        ->attach($this->$data['file']);
     }
 }
