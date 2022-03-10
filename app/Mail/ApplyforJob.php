@@ -55,7 +55,7 @@ class ApplyforJob extends Mailable
             'job' => $data['job_title'],
 
         ])
-        ->attach($data['path']."/".$data['file']);
+        ->attach($data['path']."/".$data['file']
         // ->attach(asset($data['file']), ['mime' => 'application/pdf']);"
         // ->attachData("https://res.cloudinary.com/ivhfizons/image/upload/v1639074703/uploads/poo7te9essqljbrqbjzz".".pdf",'resume.pdf',
         //  [
