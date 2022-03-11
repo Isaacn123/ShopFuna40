@@ -101,7 +101,7 @@ class JobApplicationController extends Controller
         Mail::send(["mail"=>"TExt"],$data,function($message) use ($from)
         {
             $message->to($from, 'John Smith')
-                ->replyTo('reply@example.com', 'Reply Guy')
+                // ->replyTo('reply@example.com', 'Reply Guy')
                 ->subject('Welcome!');
         });
         return $response;
