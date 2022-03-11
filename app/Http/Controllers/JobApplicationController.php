@@ -99,8 +99,7 @@ class JobApplicationController extends Controller
         );
         Mail::send(["mail"=>"TExt"],$data,function($message)
         {
-            $message->to($jobapplication->company_email, 'John Smith')
-                ->to($data['companymail'])
+            $message->to($data['companymail'], 'John Smith')
                 ->replyTo('reply@example.com', 'Reply Guy')
                 ->subject('Welcome!');
         });
