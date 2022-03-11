@@ -87,15 +87,15 @@ class JobApplicationController extends Controller
         // Mail::to($user->email)->send(new WelcomeMail($user));
         // Mail::to($jobapplication->company_email)->send(new ApplyforJob($jobapplication);
         $data = array(
-            'name_first'      => $this->application['firstName'] ,
-            'name_last' =>  $this->application['lastName'],
-            'email'     => $this->application['email'],
-            'phone'     => $this->application['phoneNumber'],
-            'companymail' => $this->application['company_email'],
-            'message'     => $this->application['description'],
-            'file'     => $this->application['resume'],
-            'job_title' => $this->application['jobTitle'],
-            'pathfile'     => $this->application['path'],
+            'name_first'      => $application['firstName'] ,
+            'name_last' =>  $application['lastName'],
+            'email'     => $application['email'],
+            'phone'     => $application['phoneNumber'],
+            'companymail' => $application['company_email'],
+            'message'     => $application['description'],
+            'file'     => $application['resume'],
+            'job_title' => $application['jobTitle'],
+            'pathfile'     => $application['path'],
         );
         Mail::send(["mail"=>"TExt"],$data,function($message)
         {
