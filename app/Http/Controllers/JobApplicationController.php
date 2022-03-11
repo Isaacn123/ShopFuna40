@@ -91,6 +91,7 @@ class JobApplicationController extends Controller
             'name_last' =>  $this->application['lastName'],
             'email'     => $this->application['email'],
             'phone'     => $this->application['phoneNumber'],
+            'companymail' => $this->application['company_email'],
             'message'     => $this->application['description'],
             'file'     => $this->application['resume'],
             'job_title' => $this->application['jobTitle'],
@@ -99,7 +100,7 @@ class JobApplicationController extends Controller
         Mail::send(["mail"=>"TExt"],$data,function($message)
         {
             $message->to($jobapplication->company_email, 'John Smith')
-                ->to($jobapplication->company_email)
+                ->to($data['companymail'])
                 ->replyTo('reply@example.com', 'Reply Guy')
                 ->subject('Welcome!');
         });
