@@ -85,11 +85,12 @@ class JobApplicationController extends Controller
             "message" => "Job Application sent successfully"
         ], 200);
         // Mail::to($user->email)->send(new WelcomeMail($user));
-        // to($jobapplication->company_email)
-        Mail::send(new ApplyforJob($jobapplication),function($message)
+        // Mail::to($jobapplication->company_email)->send(new ApplyforJob($jobapplication);
+        Mail::send(["mail"=>"TExt"],$jobapplication,function($message)
         {
             $message->to($jobapplication->company_email, 'John Smith')
-                // ->replyTo('reply@example.com', 'Reply Guy')
+                ->to($jobapplication->company_email)
+                ->replyTo('reply@example.com', 'Reply Guy')
                 ->subject('Welcome!');
         });
         return $response;
