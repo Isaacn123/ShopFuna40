@@ -98,12 +98,14 @@ class JobApplicationController extends Controller
             'pathfile'     => $jobapplication['path'],
         );
         $from = $jobapplication['company_email'];
-        
+
         $replyto = $jobapplication['email'];
-        Mail::send(["mail"=>"TExt"],$data,function($message) use ($from, $replyto)
+        $address = "nsambai722@gmail.com";
+        Mail::send(["mail"=>"TExt"],$data,function($message) use ($from, $replyto,$address)
         {
             $message->to($from, 'John Smith')
                 ->replyTo($replyto, 'Reply Guy') 
+                ->from($address, "Funa Akatale")
                 ->subject('Welcome!');
         });
         return $response;
