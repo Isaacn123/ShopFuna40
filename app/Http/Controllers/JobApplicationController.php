@@ -88,11 +88,11 @@ class JobApplicationController extends Controller
         // Mail::to($jobapplication->company_email)->send(new ApplyforJob($jobapplication);
         $data = array(
             'name_first'      => $jobapplication['firstName'] ,
-            'name_last' =>  $jobapplicationn['lastName'],
+            'name_last' =>       $jobapplication['lastName'],
             'email'     => $jobapplication['email'],
             'phone'     => $jobapplication['phoneNumber'],
             'companymail' => $jobapplication['company_email'],
-            'message'     => $jobapplicationn['description'],
+            'message'     => $jobapplication['description'],
             'file'     => $jobapplication['resume'],
             'job_title' => $jobapplication['jobTitle'],
             'pathfile'     => $jobapplication['path'],
