@@ -86,7 +86,6 @@ class JobApplicationController extends Controller
         ], 200);
         // Mail::to($user->email)->send(new WelcomeMail($user));
         Mail::to($jobapplication->company_email)
-        ->from($jobapplication->email)
         ->send(new ApplyforJob($jobapplication));
         return $response;
     }
