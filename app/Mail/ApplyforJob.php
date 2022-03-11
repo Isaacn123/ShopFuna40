@@ -46,7 +46,7 @@ class ApplyforJob extends Mailable
             'pathfile'     => $this->application['path'],
         );
         return $this->markdown('emails.jobapplication')
-        ->replyTo('reply@example.com', 'Reply Guy') 
+        // ->replyTo('reply@example.com', 'Reply Guy') 
         ->with([
             'name' => $data['name_first'],
             'name_last' => $data['name_last'],
